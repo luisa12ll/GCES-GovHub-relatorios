@@ -18,6 +18,7 @@
     - [Sprint 0](/contribuicoes_individuais/lucas_guimaraes/lucas_guimaraes_sprint0.md)
     - [Sprint 1](/contribuicoes_individuais/lucas_guimaraes/lucas_guimaraes_sprint1.md)
   - [Lucas Marques](/contribuicoes_individuais/lucas_marques/lucas_marques.md)
+  - [Luciano Freitas](/contribuicoes_individuais/luciano_freitas/luciano.md)
   - [Luisa Ferreira](/contribuicoes_individuais/luisa_ferreira/luisa.md)
   - [Maria Clara](/contribuicoes_individuais/maria_clara/maria_clara.md)
   - [Maria Eduarda](/contribuicoes_individuais/maria_eduarda/maria_eduarda.md)
