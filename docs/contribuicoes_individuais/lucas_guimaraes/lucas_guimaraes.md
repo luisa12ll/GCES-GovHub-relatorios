@@ -166,7 +166,7 @@ Na Sprint 3, o foco foi contribuir na issue #306 com ênfase em testes para o re
 | ----- | --------- | --------------------------------- | --------------- | ------ |
 | 26/05 - 27/05 | Desenvolvimento da solução da issue #306 com foco em testes | Código/Testes | [Issue #306](https://github.com/GovHub-br/data-application-gov-hub/issues/306) | Concluído |
 | 27/05 | Abertura do PR da issue #306 | Código/Doc | [PR #329](https://github.com/GovHub-br/data-application-gov-hub/pull/329) | Concluído |
-| 27/05 - Atual | Início da resolução de nova issue para continuidade da sprint | Código | [Issue #318](https://github.com/GovHub-br/data-application-gov-hub/issues/318) | Em desenvolvimento |
+| 27/05 - 03/06 | Resolução da [Issue #318](https://github.com/GovHub-br/data-application-gov-hub/issues/318) | Código | [Issue #318](https://github.com/GovHub-br/data-application-gov-hub/issues/318) | Concluído |
 | 31/05 | Commit final da entrega da issue #306 | Código | [Commit](https://github.com/GovHub-br/data-application-gov-hub/commit/a9ee872650713062e7acd99d40ad73ee6154348a) | Concluído |
 
 ### Maiores Avanços
@@ -187,3 +187,42 @@ Na Sprint 3, o foco foi contribuir na issue #306 com ênfase em testes para o re
 ### Plano Pessoal para a Próxima Sprint
 
 * [ ] Continuar evoluindo a suíte de testes do projeto.
+
+## Sprint 4 – [09/06/2026 – 22/06/2026]
+
+### Resumo da Sprint
+
+Na Sprint 4, o foco foi contribuir na issue #319, #370, Projeto Individual no GitLab e Projeto Extra de Pipeline de dados não estruturados no GitHub. Os PR's foram abertos e estão aguardando aprovação dos mantenedores.
+
+### Atividades Realizadas
+
+| Data  | Atividade | Tipo (Código/Doc/Discussão/Outro) | Link/Referência | Status |
+| ----- | --------- | --------------------------------- | --------------- | ------ |
+| 13/06 | Desenvolvimento do projeto individual da disciplina | Código | [Projeto Individual GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-lucas-borges) | Concluído |
+| 13/06 | Desenvolvimento do projeto extra de pipeline de dados não estruturados | Código | [Projeto Extra GitHub](https://github.com/lcsgborges/uda-housing-pipeline) | Concluído |
+| 15/06 | PR aberto para realizar a issue #318 | Código | [PR](https://github.com/GovHub-br/data-application-gov-hub/pull/369) | Concluído |
+| 15/06 | Commit final da entrega da issue #319 | Código | [Commit](https://github.com/GovHub-br/data-application-gov-hub/commit/c091abb710dae4b90c704f4e7e79097e6fc91edb) | Concluído |
+| 15/06 | PR aberto para realizar a issue #301 | Código | [PR](https://github.com/GovHub-br/data-application-gov-hub/pull/370) | Concluído |
+
+### Maiores Avanços
+
+* Estruturei uma contribuição orientada a testes para melhorar a confiabilidade da plataforma;
+* Submeti o PR para realizar issue #319 e ele foi integrado a branch main sem problemas.
+* Submeti o PR para realizar issue #301 e estou aguardando ser integrado na branch main.
+* Realizei os projetos individuais e extras propostos pela disciplina.
+
+### Maiores Dificuldades
+
+* Entender como funcionava Kubernetes e como integrar no projeto individual;
+* Entender protocolos de comunicação no projeto individual;
+* Implementar a pipeline de dados não estruturados para seguir os requisitos do projeto extra;
+
+### Aprendizados
+
+* Aprendi como contribuir com testes no repositório;
+* Aprendi mais sobre definição de estratégia de testes em um contexto com baixa cobertura inicial.
+* Aprendi mais sobre Kubernetes e certificados;
+
+### Plano Pessoal para a Próxima Sprint
+
+* [ ] Continuar evoluindo a suíte de testes do projeto;

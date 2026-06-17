@@ -135,10 +135,59 @@ Nesta sprint, a prioridade foi formalizar o débito técnico encontrado na sprin
 * Leitura e interpretação da estrutura de arquivos do front-end (`index.html` e pipelines de build estáticos).
 
 ### Plano Pessoal para a Próxima Sprint (Sprint 3)
-- [ ] Aplicar as correções de código (HTML/CSS) na branch `fix/issue-106-acessibilidade` resolvendo os apontamentos do relatório WCAG.
-- [ ] Registrar o Commit Semântico utilizando padrões convencionais.
-- [ ] Abrir o Pull Request para a Issue #106 e acompanhar o Code Review da comunidade.
-- [ ] Iniciar o planejamento e o desenvolvimento do trabalho individual da disciplina.
+- [x] Aplicar as correções de código (HTML/CSS) na branch `fix/issue-106-acessibilidade` resolvendo os apontamentos do relatório WCAG.
+- [x] Registrar o Commit Semântico utilizando padrões convencionais.
+- [x] Abrir o Pull Request para a Issue #106 e acompanhar o Code Review da comunidade.
+- [x] Iniciar o planejamento e o desenvolvimento do trabalho individual da disciplina.
+
+---
+
+## Sprint 3
+
+### Resumo da Sprint
+Esta sprint teve dupla atuação. A primeira foi dedicada à resolução prática do débito técnico levantado na sprint anterior (Issue #106), focando na execução completa do fluxo de governança de software com a submissão de um Pull Request no repositório oficial do Gov Hub no GitHub. Em paralelo, foi iniciado o Trabalho Individual da disciplina (projeto `mk.js`), desenvolvido inteiramente no GitLab, onde foram concluídas com sucesso as Fases 1 a 3, estabelecendo a infraestrutura base, conteinerização de desenvolvimento e esteira inicial de CI/CD.
+
+### Atividades Realizadas
+
+| Data  | Atividade | Tipo | Link/Referência | Status |
+| ----- | --------- | ---- | --------------- | ------ |
+| 27/05 | Implementação de focabilidade (Tailwind) e semântica HTML | Código | Branch `fix/issue-106-acessibilidade` | Concluído |
+| 27/05 | Testes de usabilidade e navegação via teclado | Teste | Ambiente emulado (Live Server) | Concluído |
+| 27/05 | Abertura de Pull Request vinculado à Issue original | GCES | [PR #108](https://github.com/GovHub-br/gov-hub/pull/108) | Concluído |
+| 31/05 | Fases 1 e 2 (Trabalho Individual): Containerização (DEV) e Docker Compose c/ Postgres | Infra/Código | Repositório GitLab (`mk.js`) | Concluído |
+| 02/06 | Fase 3 (Trabalho Individual): CI - Pipeline de Build & Lint | Automação | GitLab CI/CD (`mk.js`) | Concluído |
+
+### Maiores Avanços
+* **Correção Técnica (Gov Hub):** Resolução dos erros críticos de Interação/Teclado. Inserção de estados de foco explícitos (`focus:ring-4`, `focus:ring-purple-300`, `focus:ring-offset-2`) em links de navegação, botões *Call-to-Action* e logos de parceiros.
+* **Governança (Gov Hub):** O Pull Request #108 foi submetido seguindo estritamente as diretrizes do `CONTRIBUTING.md`, utilizando *Semantic Commits* (`fix(a11y): ...`) e não apresentando conflitos com a branch `main`.
+* **Trabalho Individual (mk.js):** Modernização bem-sucedida do projeto legado em Node.js. Implementação do ambiente isolado de desenvolvimento (`Dockerfile` com hot-reload e `docker-compose.yml` integrando o banco de dados Postgres) e automação rigorosa do fluxo de integração contínua (CI) via GitLab CI/CD, garantindo que falhas de Lint bloqueiem o pipeline.
+
+### Principais contribuições
+* Entrega de código (Push/Merge) em um projeto open-source focado em gestão pública, traduzindo as heurísticas de Interação Humano-Computador (IHC) em componentes de software reais.
+* Criação de uma base sólida de DevSecOps e automação no GitLab para o projeto individual da disciplina.
+
+### Maiores Dificuldades
+* **Compilação de Build Local (Gov Hub):** Impedimento inicial para rodar o pipeline de desenvolvimento (via `npm start`/MkDocs) devido à incompatibilidade pontual das ferramentas de build com o sistema operacional Windows. 
+* **Solução Adotada:** A barreira foi superada através da injeção temporária da CDN do Tailwind CSS diretamente no arquivo HTML, permitindo testes ágeis e validação visual de acessibilidade via extensão *Live Server* do VS Code.
+* **Modernização do mk.js:** Lidar com pacotes descontinuados no `package.json` original para garantir suporte às versões modernas do Node.js exigiu refatorações cirúrgicas antes de configurar a esteira de CI no GitLab.
+
+### Aprendizados
+* Criação de *Pull Requests*, garantindo a rastreabilidade da modificação desde a abertura da Issue até a submissão do PR (`Closes #106`).
+* Automação de pipelines de CI/CD (GitLab CI/CD) e gestão de ambientes isolados com persistência de dados (Docker Compose + Postgres) aplicados a cenários reais de engenharia de software.
+
+### Plano Pessoal para a Próxima Sprint (Sprint 4)
+
+Devido à proximidade da data de entrega do Trabalho Individual da disciplina (10/06), o foco desta sprint será a finalização da esteira de CI/CD e infraestrutura do projeto `mk.js` no GitLab, mantendo a contribuição com o Gov Hub BR em paralelo como um objetivo secundário.
+
+- **Trabalho Individual GCES (Prioridade Máxima):**
+  - [ ] **Fase 4 e 5:** Implementar a suíte de testes (Unitários e Fuzzing) no backend Node.js, registrando intencionalmente a quebra (Red) e a correção (Green) no pipeline do GitLab CI/CD.
+  - [ ] **Fase 6 e 7:** Integrar as ferramentas de qualidade e segurança (SAST, SCA e SonarCloud) na esteira contínua do GitLab.
+  - [ ] **Fase 8 a 10:** Estruturar o ambiente de Produção utilizando Docker (multi-stage build), manifestos do Kubernetes (K8s) e deploy com HTTPS/Cert Manager via Nginx.
+  - [ ] Finalizar o `README.md` detalhando os processos de build para os ambientes de Desenvolvimento e Produção.
+
+- **Comunidade Gov Hub BR:**
+  - [ ] Mapear e assumir uma nova Issue no repositório oficial no GitHub.
+  - [ ] Executar o fluxo completo de governança (Issue -> Branch -> Pull Request) para a nova contribuição.
 
 ---
 *Assinatura:* Maria Eduarda Denis Duarte Marques

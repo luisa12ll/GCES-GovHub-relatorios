@@ -128,7 +128,7 @@ As principais atividades foram:
 
 ---
 
-## Sprint 2 – [05/05/2026 – 25/05/2026]
+## Sprint 2 – [05/05/2026 – 17/05/2026]
  
 ### Resumo da Sprint
 Nesta sprint, trabalhei em parceria com o [Letícia Hladczuk](https://github.com/HladczukLe) na Issue #276 do GovHub BR. Nosso foco foi estruturar o guia de contribuição (CONTRIBUTING.md).
@@ -141,11 +141,7 @@ Nós abrimos o Pull Request (#281) e ele chegou a ser mergeado na branch princip
 | ---- | --------- | ---- | --------------- | ------ |
 | 05/05 - 12/05 | Busca de novas issues para contribuir | Estudo | [Issues - GovHub](https://github.com/GovHub-br/data-application-gov-hub/issues) | Concluído |
 | 13/05 - 17/05 | Desenvolvimento do `CONTRIBUTING.md` (Issue #276) | Doc | [Issue #276](https://github.com/GovHub-br/data-application-gov-hub/issues/276) | Concluído |
-| 18/05 | Revisão e abertura do Pull Request #281 | Doc | [Link - PR #281](https://github.com/GovHub-br/data-application-gov-hub/pull/281) | Concluído |
-| 19/05 | PR aprovado e mergeado na main | Doc | [Link - PR #281](https://github.com/GovHub-br/data-application-gov-hub/pull/281) | Concluído |
-| 19/05 | PR #285 (revert do #281) aberto e mergeado no mesmo dia pelo mantenedor | Doc | [Link - PR #285](https://github.com/GovHub-br/data-application-gov-hub/pull/285)  | Concluído |
-| 23/05 - 25/05 | Documento corrigido conforme revisão  | Doc | - | Concluído |
-| 25/05 | Acompanhamento do PR e aguardo de revisão  | Doc | - | Em andamento |
+
  
 ### Maiores Avanços
 * Criação completa do `CONTRIBUTING.md`, suprindo uma lacuna importante de documentação no projeto.
@@ -161,5 +157,84 @@ Nós abrimos o Pull Request (#281) e ele chegou a ser mergeado na branch princip
 * Aprofundamento nas convenções de Conventional Commits e boas práticas de contribuição em projetos colaborativos.
 
 ### Plano Pessoal para a Próxima Sprint
-- [ ] Ter o novo PR aprovado por todos os revisores.
-- [ ] Buscar novas issues para contribuir.
+- [x] Ter o novo PR aprovado por todos os revisores.
+- [x] Buscar novas issues para contribuir.
+
+---
+
+## Sprint 3 – [18/05/2026 – 01/06/2026]
+
+### Resumo da Sprint
+Nesta sprint, eu e a [Letícia Hladczuk](https://github.com/HladczukLe) finalizamos o PR da documentação de contribuição e acompanhamos sua evolução até o final do período. Enquanto o PR aguardava aprovação, continuei buscando novas issues do GovHub BR para contribuir com o projeto.
+
+Abrimos 2 PRs, o primeiro foi mergeado por engano sem a revisão correta, tivemos que abrir outro para enviar as correções solicitadas. A aprovação e merge do segundo PR ocorreram posteriormente, no dia 27/06.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link/Referência | Status |
+| ---- | --------- | ---- | --------------- | ------ |
+| 18/05 | Finalização do PR do `CONTRIBUTING.md` | Doc | [Link - PR #281](https://github.com/GovHub-br/data-application-gov-hub/pull/281) | Concluído |
+| 19/05 | Acompanhamento do PR e análise de comentários | Doc | [Link - PR #281](https://github.com/GovHub-br/data-application-gov-hub/pull/281) | Concluído |
+| 27/05 | Abertura de novo PR corrigindo as alterações solicitadas | Doc | [Link - PR #330](https://github.com/GovHub-br/data-application-gov-hub/pull/330) | Concluída|
+| 28/05 - 01/06 | Busca de novas issues para contribuir | Estudo | [Issues - GovHub](https://github.com/GovHub-br/data-application-gov-hub/issues) | Concluído |
+
+### Maiores Avanços
+* Enviei o PR de documentação de contribuição do projeto.
+* Mantive o acompanhamento do processo de revisão até o fim da sprint.
+
+### Maiores Dificuldades
+* Achamos que o arquivo `CONTRIBUTING.md` tinha sido mergeado, pois os PRs tinham sido fechados. Isso atrasou um pouco a correção do arquivo.
+
+### Aprendizados
+* Entendi melhor o fluxo de contribuição e como deveria ser feita após a revisão.
+
+### Plano Pessoal para a Próxima Sprint
+- [x] Acompanhar o resultado final do PR e validar o merge.
+- [x] Avançar para o trabalho individual da disciplina.
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">Comprobatórios da Sprint</span></summary>
+<h3>Pull Request #330</h3>
+
+![Pull Request #330](assets/sprint3/pullRequest330.png)
+</details>
+---
+
+## Sprint 4 – [02/06/2026 – 15/06/2026]
+
+### Resumo da Sprint
+Nessa sprint, foquei totalmente na entrega do projeto individual da disciplina (o jogo mk.js). Dediquei meu tempo para atualizar o código antigo para o Node moderno, automatizar testes e segurança diretamente no pipeline do GitLab, e criar toda a infraestrutura rodando no Kubernetes e Terraform.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link/Referência | Status |
+| ---- | --------- | ---- | --------------- | ------ |
+| 02/06 - 04/06 | Atualização de dependências antigas do Node, criação do Dockerfile de desenvolvimento com hot-reload e persistência com Postgres (Fases 1 e 2) | Código / Docker | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-rafael-matuda) | Concluído |
+| 04/06 - 06/06 | Configuração do ESLint global, criação do pipeline de Build & Lint, testes unitários com Jest no ciclo de falha/correção e testes de Fuzzing (Fases 3, 4 e 5) | Código / CI/CD | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-rafael-matuda) | Concluído |
+| 06/06 - 08/06 | Integração de ferramentas de segurança (Semgrep e npm audit) e análise de qualidade usando o SonarCloud no GitLab CI (Fases 6 e 7) | CI/CD / Segurança | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-rafael-matuda) | Concluído |
+| 08/06 - 09/06 | Configuração do Docker de produção usando Nginx para servir o frontend e fazer proxy reverso para o Node.js (Fase 8) | Docker | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-rafael-matuda) | Concluído |
+| 09/06 - 10/06 | Criação dos manifestos do Kubernetes, infraestrutura com Terraform, deploy automático no GitLab Container Registry e segurança de rede com HTTPS e Ingress (Fases 9 e 10) | Infra / IaC / CD | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-rafael-matuda) | Concluído |
+
+### Maiores Avanços
+
+* A base do projeto individual foi estabelecida, priorizando a criação de containers, pipelines de integração e entrega contínuas (CI/CD) e a garantia da qualidade do software.
+* Montei um pipeline de CI/CD bem completo no GitLab, rodando desde linter e testes até análises de segurança e envio automático da imagem de produção para o registry.
+* O versionamento e o registro das entregas no repositório do GitLab foram mantidos de forma constante durante a criação e validação da esteira DevOps.
+* Houve progresso significativo na implementação das funcionalidades do sistema e na elaboração da documentação técnica.
+* Corrigi bugs e lints antigos que estavam quebrando o linter do frontend, além de modernizar o acesso à câmera no código do jogo.
+
+### Maiores Dificuldades
+* A transição do projeto para uma arquitetura mais atualizada (separando front-end e backend) demandou refatorações nas configurações e resolução de dependências.
+* Resolver problemas de dependências antigas do projeto e erros do ESLint que estavam mascarados no início.
+* A homologação do sistema em containers e a correta integração com o GitLab CI geraram alguns obstáculos técnicos relacionados à configuração de ambientes e testes.
+* Configurar o proxy do Nginx para aceitar conexões via WebSocket (do socket.io) sem quebrar a comunicação do jogo.
+* Configurar o Ingress do Kubernetes com HTTPS (cert-manager com certificado autoassinado) rodando localmente.
+
+
+
+### Aprendizados
+* Aprendi a estruturar um pipeline completo no GitLab CI com gerenciamento de dependências e artefatos de cobertura de código.
+* Compreendi como garantir segurança de ponta a ponta (end-to-end) na infraestrutura usando SAST, SCA, HTTPS e redirecionamentos no Nginx.
+
+### Plano Pessoal para a Próxima Sprint
+- [ ] Voltar a contribuir no GovHub

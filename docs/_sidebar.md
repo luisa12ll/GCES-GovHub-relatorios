@@ -2,6 +2,8 @@
 
 - [**Sprints**](/sprints/README.md)
   - [Sprint 0](/sprints/sprint0.md)
+  - [Sprint 1](/sprints/sprint1.md)
+  - [Sprint 2](/sprints/sprint2.md)
 
 - [**Contribuições**](/contribuicoes_individuais/README.md)
   - [Ana Letícia](/contribuicoes_individuais/ana_leticia/ana_leticia.md)
@@ -9,6 +11,7 @@
   - [Artur Camargos](/contribuicoes_individuais/artur_camargos/artur_camargos.md)
   - [Camila Silva](/contribuicoes_individuais/camila_silva/camila_silva.md)
   - [Gabriel Saraiva](/contribuicoes_individuais/gabriel_saraiva/gabriel_saraiva.md)
+  - [Gabryel Sousa](/contribuicoes_individuais/gabryel_sousa/gabryel_sousa.md)
   - [João Lucas](/contribuicoes_individuais/joao_lucas/joao_lucas.md)
   - [João Vitor](/contribuicoes_individuais/joao_vitor/joao_vitor.md)
   - [Júlia Takaki](/contribuicoes_individuais/julia_takaki/julia_takaki.md)

@@ -174,3 +174,50 @@ Durante esta sprint, atuei no repositório `data-application-gov-hub` (que utili
 
 * [ ] Acompanhar a revisão da branch `feature/cliente-mrv` (Issue #315).
 * [ ] Buscar novas issues relevantes para contribuir.
+
+---
+
+## Sprint 3
+
+### Resumo da Sprint
+
+Durante esta sprint, o foco principal foi a criação de novas fundações sólidas para a coleta de dados de fontes cruciais governamentais (BACEN e ABECIP). Foram estabelecidos, em branches separadas, dois novos clientes de integração garantindo robustez nas requisições de rede (retries, timeouts) e com cobertura de testes imunes a interrupções de internet.
+
+### Atividades Realizadas
+
+| Data  | Atividade | Tipo (Código/Doc/Discussão/Outro) | Link/Referência | Status |
+| ----- | --------- | --------------------------------- | --------------- | ------ |
+| - | Integração e Testes do Cliente BACEN | Código | [PR #340](https://github.com/GovHub-br/data-application-gov-hub/pull/340) | Concluído |
+| - | Integração e Testes do Cliente ABECIP | Código | [PR #341](https://github.com/GovHub-br/data-application-gov-hub/pull/341) | Concluído |
+
+### Detalhamento das Atividades Realizadas
+
+#### 1. Integração e Testes do Cliente BACEN (Issue #308) 🚀
+* **O que foi feito:** Criação do cliente de integração com o Banco Central do Brasil (`cliente_bacen.py`) no padrão do repositório (estendendo `ClienteBase`) e implementação de toda sua cobertura de testes unitários.
+* **Construção de Endpoints:** Construção do endpoint genérico `/dados/serie/bcdata.sgs.{codigo_serie}/dados` (`get_serie`).
+* **Filtragem:** Inclusão de suporte à filtragem por `dataInicial` e `dataFinal`, fixando a resposta via `formato=json`.
+* **Testes de Isolamento:** Criação de suite de testes focada em simular (mock) a camada interna de requisição via HTTPX. Isso garantiu total isolamento de rede durante os testes e validou o funcionamento dos parâmetros em diferentes contextos (com e sem datas configuradas).
+
+#### 2. Integração e Testes do Cliente ABECIP (Issue #307) 🚀
+* **O que foi feito:** Criação do cliente de integração com a Associação Brasileira das Entidades de Crédito Imobiliário e Poupança (`cliente_abecip.py`), além de mapeamento de endpoints chave e implementação de seus respectivos testes.
+* **Mapeamento de Endpoints:** Mapeamento dos métodos principais `get_financiamentos` (buscando obrigatoriamente por ano e opcionalmente por mês) e `get_indicadores`.
+* **Padronização:** Assim como no BACEN, a classe estende `ClienteBase` para padronizar timeout e resiliência das chamadas (logs + retry automático).
+* **Testes Avançados:** Criação dos testes de isolamento total de rede, garantindo adicionalmente testes na lógica de parseamento nativo de payloads em JSON (validando que listas/dicionários da API são transferidos adequadamente para a lógica da aplicação ao processar as requisições mockadas).
+
+### Maiores Avanços
+
+* Estabelecimento de fundações sólidas para a coleta de dados de fontes governamentais importantes (BACEN e ABECIP).
+* Implementação de clientes com robustez de requisições de rede (retries, timeouts) e testes com isolamento total de rede garantidos desde o início.
+
+### Maiores Dificuldades
+
+* Criação de testes com mock de parseamento nativo de payloads em JSON para simular respostas reais das APIs.
+
+### Aprendizados
+
+* Aplicação e criação de testes complexos para simular isolamento de rede, garantindo resiliência em requisições de clientes estendidos a partir de uma classe pai.
+
+### Plano Pessoal para a Próxima Sprint
+
+* [ ] Acompanhar a revisão das issues referentes aos clientes BACEN e ABECIP.
+* [ ] Buscar novas issues relevantes para contribuir.

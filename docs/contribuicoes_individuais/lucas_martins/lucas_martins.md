@@ -293,4 +293,113 @@ Pull request com a implementação completa da feature de notificações de falh
 - [ ] Colaborar com outros membros da equipe em code reviews
 
 
-    
+---
+
+## Sprint 3 – [27/05/2026 – 08/06/2026]
+
+### Resumo da Sprint
+
+Sprint dedicada à realização do Projeto Individual 4, cujo objetivo foi construir um pipeline de Análise de Dados Não Estruturados (UDA) para o setor habitacional. O projeto processa PDFs de Relações com Investidores de incorporadoras, extrai métricas operacionais com apoio de LLM, persiste os artefatos e dados estruturados com linhagem, e disponibiliza uma API REST para alimentar um boletim de conjuntura.
+
+Durante a sprint, implementei e validei uma arquitetura composta por polling das centrais de resultados, cálculo de hash para idempotência, armazenamento de artefatos no MinIO, parsing com Docling, chunking e filtro semântico, extração com Gemini e contrato Pydantic, persistência em Postgres e endpoints FastAPI documentados via Swagger. A entrega foi validada com dois layouts diferentes de empresas: MRV e Cury.
+
+### Atividades Realizadas
+
+| Data  | Atividade | Tipo (Código/Doc/Discussão/Outro) | Link/Referência | Status |
+|-------|-----------|-----------------------------------|-----------------|--------|
+| 27/05 | Análise da especificação do Projeto Individual 4 e do boletim de conjuntura de referência | Estudo | - | Concluído |
+| 28/05 | Definição da arquitetura do pipeline UDA com polling, MinIO, Postgres, LLM e API REST | Discussão/Arquitetura | - | Concluído |
+| 30/05 | Implementação da camada de persistência, catálogo de documentos, linhagem e idempotência por SHA-256 | Código | - | Concluído |
+| 01/06 | Implementação do processamento de PDFs com Docling, markdown, chunking e filtro semântico | Código | - | Concluído |
+| 03/06 | Implementação da extração com Gemini, contrato Pydantic, fixtures offline e validação de respostas | Código/Teste | - | Concluído |
+| 05/06 | Implementação da API FastAPI, endpoint de conjuntura e documentação Swagger/OpenAPI | Código/Doc | - | Concluído |
+| 07/06 | Validação com MRV 3T25 e Cury 3T25, persistindo métricas, artefatos e evidências de funcionamento | Teste | - | Concluído |
+| 08/06 | Documentação final, README, validação contra boletim real e abertura do PR do projeto | Documentação | - | Concluído |
+
+### Detalhamento das Atividades Realizadas
+
+O projeto foi implementado no repositório de projetos individuais: [lucas-martins-gabriel/projeto-4](https://github.com/martinsglucas/Projetos-Individuais-2026-1/tree/projeto-4/lucas-martins-gabriel/projeto-4). A solução usa fixtures versionadas para garantir reprodutibilidade da avaliação e também registra respostas reais da LLM como evidência de execução com Gemini.
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">1. Testes automatizados passando</span></summary>
+
+Print do terminal mostrando a suíte de testes do projeto executada com sucesso. A validação final registrou 29 testes passando.
+
+![Testes automatizados](assets/sprint-3/testes.png)
+<p align="center"><i><b>Fonte:</b> Lucas Martins</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">2. Swagger da API</span></summary>
+
+Swagger/OpenAPI da aplicação FastAPI, com os endpoints principais para consulta de empresas, documentos, métricas e conjuntura.
+
+![Swagger da API](assets/sprint-3/swagger.png)
+<p align="center"><i><b>Fonte:</b> Lucas Martins</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">3. Endpoint de conjuntura</span></summary>
+
+Resposta do endpoint `/api/conjuntura?ano=2025&trimestre=3`, usado para consolidar os dados de MRV e Cury no formato esperado pelo boletim.
+
+![Endpoint de conjuntura](assets/sprint-3/conjuntura.png)
+<p align="center"><i><b>Fonte:</b> Lucas Martins</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">4. Bucket de artefatos no MinIO</span></summary>
+
+Console do MinIO mostrando o bucket `uda-artifacts`, usado para armazenar os PDFs brutos, os markdowns parseados e as respostas validadas da LLM.
+
+![Bucket MinIO](assets/sprint-3/minio.png)
+<p align="center"><i><b>Fonte:</b> Lucas Martins</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">5. Caminho de artefatos no MinIO</span></summary>
+
+Exemplo de caminho persistido no MinIO, evidenciando a organização por tipo de artefato, empresa, ano, período e hash do documento.
+
+![Caminho no MinIO](assets/sprint-3/minio-path.png)
+<p align="center"><i><b>Fonte:</b> Lucas Martins</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">6. Pull Request do Projeto Individual 4</span></summary>
+
+Print do Pull Request de submissão do Projeto Individual 4, com resumo das funcionalidades implementadas e evidências de funcionamento.
+
+![Pull Request Projeto Individual 4](assets/sprint-3/pr.png)
+<p align="center"><i><b>Fonte:</b> Lucas Martins</i></p>
+</details>
+
+### Maiores Avanços
+
+* Construção de um pipeline completo de UDA, da coleta do PDF até a disponibilização dos dados estruturados por API.
+* Integração de MinIO, Postgres, Docling, Gemini, Pydantic e FastAPI em um fluxo único e reprodutível.
+* Validação de dois layouts distintos de relatórios, MRV e Cury, atendendo ao requisito de resiliência contra variações de PDF.
+* Registro de linhagem dos dados, conectando métricas estruturadas ao PDF original, hash, URL de origem e artefatos persistidos.
+* Documentação final com roteiro de reprodução, validação contra boletim real e evidências de funcionamento.
+
+### Maiores Dificuldades
+
+* Lidar com instabilidade temporária do Gemini, que exigiu retry, fallback de modelo e fixtures offline para manter a entrega reprodutível.
+* Modelar corretamente as colunas históricas dos relatórios, pois a LLM real nem sempre transforma colunas como `2T25`, `3T24`, `9M25` e `9M24` em métricas temporais separadas.
+* Conciliar o formato do boletim oficial com os recortes publicados nos PDFs das empresas, que podem usar segmentações diferentes.
+* Ajustar o pipeline para preservar idempotência e linhagem sem depender de regras rígidas de layout do PDF.
+
+### Aprendizados
+
+* Uso de contratos semânticos com Pydantic como camada de qualidade para respostas de LLM.
+* Importância de separar extração semântica, validação estrutural e persistência para reduzir risco de alucinação.
+* Como MinIO pode ser usado como storage de artefatos para dar rastreabilidade a pipelines de dados não estruturados.
+* Estratégias de chunking e filtro semântico para reduzir custo e contexto enviado à LLM.
+* Diferença entre validar formato de API e garantir aderência numérica completa a um boletim oficial.
+
+### Plano Pessoal para a Próxima Sprint
+
+- [ ] Revisar eventuais comentários recebidos no PR do Projeto Individual 4
+- [ ] Organizar melhor as evidências de execução e documentação técnica
+- [ ] Continuar acompanhando oportunidades de contribuição no Gov Hub BR
+- [ ] Aprofundar conhecimentos em pipelines de dados, observabilidade e validação automatizada

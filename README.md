@@ -94,9 +94,9 @@ Para manter a integridade da branch `main`, adotamos as seguintes práticas:
 
 <div align="center">
 
-| **[Ana Letícia](https://github.com/ghost)**<br><sub>211031584</sub> | **[Anna Clara](https://github.com/annacbrandao)**<br><sub>222006534</sub> | **[Artur Camargos](https://github.com/Arturdcr)**<br><sub>221038785</sub> | **[Gabriel Saraiva](https://github.com/gabrielsarcan)**<br><sub>202045769</sub> | **[João Lucas](https://github.com/ghost)**<br><sub>222025324</sub> | **[João Vitor](https://github.com/Joa0V)**<br><sub>221022014</sub> |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/annacbrandao.png" width="90"> | <img src="https://github.com/Arturdcr.png" width="90"> | <img src="https://github.com/gabrielsarcan.png" width="90"> | <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/Joa0V.png" width="90"> |
+| **[Ana Letícia](https://github.com/ghost)**<br><sub>211031584</sub> | **[Anna Clara](https://github.com/annacbrandao)**<br><sub>222006534</sub> | **[Artur Camargos](https://github.com/Arturdcr)**<br><sub>221038785</sub> | **[Gabriel Saraiva](https://github.com/gabrielsarcan)**<br><sub>202045769</sub> | **[Gabryel Sousa](https://github.com/gabryelns)**<br><sub>221022570</sub> | **[João Lucas](https://github.com/ghost)**<br><sub>222025324</sub> | **[João Vitor](https://github.com/Joa0V)**<br><sub>221022014</sub> |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/annacbrandao.png" width="90"> | <img src="https://github.com/Arturdcr.png" width="90"> | <img src="https://github.com/gabrielsarcan.png" width="90"> | <img src="https://github.com/gabryelns.png" width="90"> | <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/Joa0V.png" width="90"> |
 
 <br>
 

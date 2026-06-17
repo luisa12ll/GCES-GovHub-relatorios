@@ -146,3 +146,64 @@ As principais atividades foram:
 ### Plano Pessoal para a Próxima Sprint
 * [ ] Acompanhar a revisão do Pull Request e responder aos comentários dos mantenedores.
 * [ ] Buscar uma nova contribuição no GovHub, preferencialmente envolvendo documentação ou integração de dados.
+
+---
+
+## Sprint 3 
+
+### Resumo da Sprint
+Nesta sprint, o planejamento inicial era atuar na issue [[GCES] Ingestão BACEN - Crédito Imobiliário por PIB #40](https://github.com/GovHub-br/data-application-gov-hub/issues/40), relacionada à ingestão de dados do BACEN. Durante a análise inicial, encontrei dificuldades para avançar com segurança no escopo da ingestão, especialmente por envolver entendimento mais detalhado da fonte de dados e da estrutura esperada para o pipeline.
+
+Diante disso, redirecionei minha contribuição para uma issue mais alinhada ao estado atual do projeto e ao meu entendimento da camada dbt: [Renomear tabela pessoas.hierarquia para pessoas.forca_trabalho #372](https://github.com/GovHub-br/data-application-gov-hub/issues/372). A partir dessa issue, trabalhei na refatoração do modelo de dados de pessoas, atualizando o nome do modelo `hierarquia` para `forca_trabalho`, ajustando referências downstream e documentando a mudança. A contribuição foi enviada por meio do Pull Request [GovHub-br/data-application-gov-hub#383](https://github.com/GovHub-br/data-application-gov-hub/pull/383).
+
+### Atividades Realizadas
+| Data | Atividade | Tipo (Código/Doc/Discussão/Outro) | Link/Referência | Status |
+| ----- | --------- | --------------------------------- | --------------- | ------ |
+| 09/06 - 11/06 | Análise inicial da issue de ingestão BACEN - Crédito Imobiliário por PIB | Estudo | [Issue #40](https://github.com/GovHub-br/data-application-gov-hub/issues/40) | Interrompido |
+| 12/06 | Reavaliação do escopo e escolha de nova issue para contribuição | Discussão/Estudo | [Issue #372](https://github.com/GovHub-br/data-application-gov-hub/issues/372) | Concluído |
+| 13/06 - 15/06 | Refatoração do modelo `pessoas.hierarquia` para `pessoas.forca_trabalho` | Código/dbt | [Issue #372](https://github.com/GovHub-br/data-application-gov-hub/issues/372) | Concluído |
+| 15/06 - 16/06 | Atualização das referências downstream e da documentação do modelo no `schema.yml` | Código/Doc | `servidores_completos.sql`, `distribuicao_raca_cor_sexo_servidores_.sql`, `schema.yml` | Concluído |
+| 16/06 | Criação de teste dbt para validar cargo de estagiários em `forca_trabalho` | Teste/dbt | `estagiarios_nome_cargo_not_null.sql` | Concluído |
+| 17/06 | Abertura do Pull Request com a contribuição | Código/Doc | [PR #383](https://github.com/GovHub-br/data-application-gov-hub/pull/383) | Concluído |
+
+### Implementação da Issue #372
+
+O foco da entrega foi alinhar o nome do modelo de pessoas ao conceito de força de trabalho utilizado pelo dashboard do IPEA.
+
+As principais atividades foram:
+
+- **Renomeação do modelo dbt:** o modelo `pessoas.hierarquia` foi refatorado para `pessoas.forca_trabalho`, deixando o nome da tabela mais coerente com o domínio de negócio.
+- **Atualização de referências downstream:** os modelos que consumiam `ref("hierarquia")` foram atualizados para `ref("forca_trabalho")`, evitando quebra no grafo dbt.
+- **Atualização da documentação:** o `schema.yml` da camada gold foi ajustado para documentar o novo modelo `forca_trabalho`.
+- **Validação específica para estagiários:** foi adicionado um teste singular dbt para garantir que registros de estagiários não fiquem com `nome_cargo` nulo ou vazio.
+- **Abertura do PR:** a contribuição foi consolidada no Pull Request [#383](https://github.com/GovHub-br/data-application-gov-hub/pull/383).
+
+### Maiores Avanços
+* Consegui adaptar o planejamento da sprint após identificar dificuldades na issue de ingestão BACEN.
+* Contribuí em uma refatoração importante da camada dbt de pessoas.
+* Atualizei referências downstream para preservar a consistência do grafo de modelos.
+* Adicionei validação dbt relacionada ao preenchimento do cargo de estagiários.
+* Abri o Pull Request #383 no repositório `data-application-gov-hub`.
+
+### Maiores Dificuldades
+* A issue inicialmente escolhida, relacionada à ingestão BACEN, exigia um entendimento maior da fonte de dados e do desenho do pipeline, o que dificultou o avanço dentro do tempo da sprint.
+* Foi necessário entender melhor a relação entre os modelos `hierarquia`, `servidores_completos` e as tabelas de dashboard.
+* A validação completa com `dbt run` e `dbt test` não pôde ser concluída localmente por diferenças entre o ambiente local e o ambiente esperado do projeto, especialmente a configuração de database `analytics` e a ausência das fontes carregadas localmente.
+
+### Aprendizados
+* Entendi melhor como o dbt organiza dependências entre modelos por meio de `ref()`.
+* Aprendi a fazer uma refatoração de modelo preservando referências downstream.
+* Compreendi a importância de registrar limitações de validação no Pull Request quando o ambiente local não replica completamente o ambiente de dados real.
+* Reforcei a importância de adaptar o escopo da contribuição quando uma issue se mostra mais complexa do que o previsto.
+
+### Comprobatórios da Issue #372
+
+- Issue trabalhada: [Renomear tabela pessoas.hierarquia para pessoas.forca_trabalho #372](https://github.com/GovHub-br/data-application-gov-hub/issues/372)
+- Pull Request aberto: [GovHub-br/data-application-gov-hub#383](https://github.com/GovHub-br/data-application-gov-hub/pull/383)
+- Modelo criado: `airflow_lappis/dags/dbt/ipea/models/pessoas_dbt/gold/forca_trabalho.sql`
+- Teste criado: `airflow_lappis/dags/dbt/ipea/tests/estagiarios_nome_cargo_not_null.sql`
+
+### Plano Pessoal para a Próxima Sprint
+* [ ] Acompanhar a revisão do PR #383 e responder aos comentários dos mantenedores.
+* [ ] Validar a execução completa em ambiente com fontes carregadas, caso seja solicitado na revisão.
+* [ ] Buscar uma nova issue de contribuição, preferencialmente em dbt ou documentação de modelos.
