@@ -176,3 +176,120 @@ Consulta aos dados no Superset mostrando os dados demográficos de Unidades de C
 * [ ] Contribuir com sugestões de melhoria.
 * [ ] Documentar o pipeline no repositório.
 * [ ] Trabalhar na integração final com Luisa.
+
+## Sprint 2 – [12/05/2026 – 26/05/2026]
+
+### Resumo da Sprint
+
+Esta sprint teve como foco a implementação de testes unitários para o módulo `cliente_transferegov_emendas.py`, responsável pelo consumo de dados de emendas parlamentares e transferências especiais do governo federal. Realizei essa atividade juntamente com a **Luísa Ferreira**, envolvendo a criação dos testes, a configuração de mocks para as requisições à API pública do TransfereGov e a solução de problemas relacionados ao ambiente de desenvolvimento. Como resultado, foi alcançada cobertura de 100% das linhas do módulo analisado.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link |
+| :---- | :-------------------------------------------------------------- | :----------- | :----------------------------------------------------------------------------- | :----------------- |
+| 12/05 | Estudo e análise da issue #320                                  | Estudo       | [Issue #320](https://github.com/GovHub-br/data-application-gov-hub/issues/320) | Concluído          |
+| 14/05 | Análise do código de `cliente_transferegov_emendas.py`          | Estudo       | `airflow_lappis/plugins/cliente_transferegov_emendas.py`                       | Concluído          |
+| 18/05 | Configuração do ambiente de testes (Python 3.11 e dependências) | Ambiente     | `pyproject.toml`                                                               | Concluído          |
+| 18/05 | Desenvolvimento dos testes unitários com mock da API            | Código       | `tests/test_plugins/test_cliente_transfere_gov.py`                             | Concluído          |
+| 22/05 | Sincronização do fork com o repositório upstream                | Código       | Branch `feat/tests-cliente-transfere-gov`                                      | Concluído          |
+| 25/06 | Atualização do Diário de Bordo                                  | Documentação | -                                                                              | Concluído          |
+| 07/06 | Abertura do Pull Request                                        | Código       | [PR #345](https://github.com/GovHub-br/data-application-gov-hub/pull/345)      | Aguardando revisão |
+
+### Detalhamento das Atividades Realizadas
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">1. Análise da Issue e do Módulo</span></summary>
+
+Foi realizado o estudo da [issue #320](https://github.com/GovHub-br/data-application-gov-hub/issues/320) e a leitura detalhada do módulo `cliente_transferegov_emendas.py`, identificando todos os métodos da classe `ClienteTransfereGov` e mapeando os principais cenários de teste, incluindo casos de sucesso, falhas HTTP, paginação automática e atualização de offset.
+
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">2. Configuração do Ambiente de Testes</span></summary>
+
+O projeto requer Python 3.11 devido ao uso de recursos introduzidos nas versões mais recentes da linguagem, porém o `pytest` estava sendo executado utilizando o Python 3.9 instalado no sistema. Para resolver o problema, foi utilizado o interpretador Python 3.11 disponibilizado pelo Homebrew (`/opt/homebrew/bin/python3.11`), além da instalação das dependências necessárias (`pytest`, `pytest-cov`, `httpx` e `pandas`) nesse ambiente.
+
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">3. Implementação dos Testes Unitários</span></summary>
+
+Foram desenvolvidos 95 testes unitários organizados em classes de acordo com cada recurso disponibilizado pela API. O método `request`, herdado da classe `ClienteBase`, foi substituído por um `MagicMock` diretamente na instância, garantindo que nenhuma requisição real fosse enviada para a API do governo federal.
+
+Os dados simulados reproduzem a estrutura real das respostas retornadas pela API, utilizando listas de dicionários contendo os campos esperados em cada endpoint.
+
+Recursos cobertos:
+
+* Programas especiais;
+* Planos de ação especiais por programa;
+* Executores especiais;
+* Empenhos especiais (geral e por plano de ação);
+* Documentos hábeis especiais (geral e por empenho);
+* Metas especiais;
+* Finalidades especiais;
+* Ordens bancárias especiais;
+* Relatórios de gestão especial e novo;
+* Planos de trabalho especiais;
+* Histórico de pagamentos especiais.
+
+Execução dos testes - início da suíte:
+
+![Testes passando - início](assets/pytest_coverage.png)
+
+<p align="center"><i><b>Fonte:</b> Luísa de Souza Ferreira</i></p>
+
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">4. Resultado da Cobertura</span></summary>
+
+A execução do `pytest` utilizando a opção `--cov` confirmou cobertura total do módulo analisado:
+
+```text
+airflow_lappis/plugins/cliente_transferegov_emendas.py    407      0   100%
+```
+
+Foram contabilizados 93 testes executados com sucesso e nenhuma falha registrada.
+
+![Cobertura 100%](assets/pytest_inicio.png)
+
+<p align="center"><i><b>Fonte:</b> Luísa de Souza Ferreira</i></p>
+
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">5. Pull Request Aberto</span></summary>
+
+O Pull Request [#345](https://github.com/GovHub-br/data-application-gov-hub/pull/345) foi aberto na branch `feat/tests-cliente-transfere-gov` e permanece aguardando revisão.
+
+![Pull Request #345](assets/pr_345.png)
+
+<p align="center"><i><b>Fonte:</b> Luísa de Souza Ferreira</i></p>
+
+</details>
+
+### Maiores Avanços
+
+* Desenvolvimento de 95 testes unitários cobrindo todos os métodos da classe `ClienteTransfereGov`;
+* Mock completo das requisições à API pública do TransfereGov, eliminando dependência de rede durante os testes;
+* Cobertura de 100% das linhas do módulo `cliente_transferegov_emendas.py`;
+* Correção dos problemas relacionados à versão do Python no ambiente local;
+* Trabalho colaborativo realizado com Luísa Ferreira.
+
+### Maiores Dificuldades
+
+* Incompatibilidade entre versões do Python: o ambiente utilizava Python 3.9, enquanto o projeto exige Python 3.11, ocasionando erros (`TypeError`) durante a coleta dos testes.
+
+### Aprendizados
+
+* Criação de testes unitários utilizando `unittest.mock` para clientes HTTP;
+* Utilização de `MagicMock` e `side_effect` para simular paginação automática;
+* Configuração de múltiplas versões do Python via Homebrew no macOS;
+* Uso do `pytest-cov` para análise de cobertura de testes;
+* Processo de sincronização de forks com repositórios upstream no Git.
+
+### Plano Pessoal para a Próxima Sprint
+
+* [ ] Acompanhar a revisão e aprovação do PR #345.
+* [ ] Implementar melhorias sugeridas durante o processo de revisão.
+* [ ] Selecionar a próxima issue juntamente com Luísa Ferreira.
