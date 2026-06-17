@@ -130,3 +130,44 @@ Para a realização da atividade, foram pesquisados modelos amplamente utilizado
 * [ ] Acompanhar a revisão da [Issue #277](https://github.com/GovHub-br/data-application-gov-hub/issues/277);
 * [ ] Realizar novas contribuições para o projeto;
 * [ ] Participar de discussões e revisões de documentação.
+
+## Sprint 3 – [25/05/2026 – 08/06/2026]
+
+### Resumo da Sprint
+
+Durante esta sprint, o foco principal foi acompanhar a evolução da contribuição realizada na sprint anterior, relacionada à criação do arquivo `CODE_OF_CONDUCT.md` para o projeto Gov Hub BR.
+
+Após a submissão da Pull Request referente à Issue #277, foi realizado o acompanhamento do processo de revisão, análise dos feedbacks recebidos e validação da contribuição conforme os padrões adotados pelo projeto. Essa etapa permitiu compreender melhor o fluxo colaborativo de projetos open source e a importância da revisão por outros contribuidores antes da integração de novas alterações.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo (Código/Doc/Discussão/Outro) | Link/Referência | Status |
+|------|-----------|-----------------------------------|-----------------|--------|
+| 25/05 - 01/06 | Acompanhamento da revisão da contribuição referente ao `CODE_OF_CONDUCT.md`             | Documentação/Discussão            | [Issue #277](https://github.com/GovHub-br/data-application-gov-hub/issues/277)      | Concluído |
+| 02/06 - 08/06 | Análise dos feedbacks e validação dos ajustes solicitados durante o processo de revisão | Documentação                      | [Pull Request #322](https://github.com/GovHub-br/data-application-gov-hub/pull/322) | Concluído |
+
+### Maiores Avanços
+
+* Acompanhamento do ciclo completo de uma contribuição, desde a criação do documento até o processo de revisão;
+* Maior compreensão do fluxo de Pull Requests em projetos open source;
+* Evolução da percepção sobre a importância de revisão colaborativa para garantir qualidade e padronização;
+* Consolidação da contribuição relacionada à governança do projeto Gov Hub BR.
+
+### Maiores Dificuldades
+
+* Entender quais ajustes eram necessários para manter a contribuição alinhada aos padrões existentes no projeto;
+* Acompanhar o processo de revisão e considerar as sugestões feitas pelos mantenedores;
+* Garantir que o documento permanecesse adequado ao contexto da comunidade.
+
+### Aprendizados
+
+* Pull Requests funcionam como mecanismos de validação e melhoria contínua em projetos colaborativos;
+* A comunicação entre contribuidores e mantenedores é essencial para evolução de projetos open source;
+* Documentações de governança possuem impacto direto na organização e sustentabilidade da comunidade.
+
+### Plano Pessoal para a Próxima Sprint
+
+* [ ] Continuar buscando novas oportunidades de contribuição no projeto;
+* [ ] Explorar issues relacionadas a melhorias técnicas ou documentação;
+* [ ] Aprofundar o conhecimento sobre os componentes internos do Gov Hub BR;
+* [ ] Participar mais ativamente das discussões da comunidade.
