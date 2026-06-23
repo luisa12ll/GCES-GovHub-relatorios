@@ -174,6 +174,13 @@ Utilize o menu lateral para explorar as seções do nosso trabalho:
     </a>
   </div>
 
+  <div style="width: 150px;">
+    <a href="#/contribuicoes_individuais/rafael_melo/renann_gomes.md" style="text-decoration: none; color: inherit;">
+      <img src="https://github.com/renannogomes.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Renann Gomes<br><span style="font-weight: normal; opacity: 0.7;">200043030</span></p>
+    </a>
+  </div>
+
 </div>
 
 ---

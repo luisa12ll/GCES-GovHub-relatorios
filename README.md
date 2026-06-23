@@ -110,4 +110,10 @@ Para manter a integridade da branch `main`, adotamos as seguintes práticas:
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | <img src="https://github.com/luisa12ll.png" width="90"> | <img src="https://github.com/alvezclari.png" width="90"> | <img src="https://github.com/mariadenis.png" width="90"> | <img src="https://github.com/MatheussBrant.png" width="90"> | <img src="https://github.com/MilenaFRocha.png" width="90"> | <img src="https://github.com/rmatuda.png" width="90"> |
 
+<br>
+
+| **[Renann Gomes](https://github.com/renannogomes)**<br><sub>200043030</sub>
+| :---: |
+| <img src="https://github.com/renannogomes.png" width="90"> | 
+
 </div>

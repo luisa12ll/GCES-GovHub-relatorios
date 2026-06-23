@@ -28,6 +28,7 @@
   - [Milena Fernandes](/contribuicoes_individuais/milena_fernandes/milena_fernandes.md)
   - [Rafael Melo](/contribuicoes_individuais/rafael_melo/rafael_melo.md)
   - [João Fonseca](/contribuicoes_individuais/joao_fonseca/joao_fonseca.md)
+  - [Renann Gomes](/contribuicoes_individuais/renann_gomes/renann_gomes.md)
 
 - [**Materiais**](/materiais/README.md)
   - [Referências](/materiais/referencias.md)
