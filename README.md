@@ -94,20 +94,26 @@ Para manter a integridade da branch `main`, adotamos as seguintes práticas:
 
 <div align="center">
 
-| **[Ana Letícia](https://github.com/ghost)**<br><sub>211031584</sub> | **[Anna Clara](https://github.com/annacbrandao)**<br><sub>222006534</sub> | **[Artur Camargos](https://github.com/Arturdcr)**<br><sub>221038785</sub> | **[Gabriel Saraiva](https://github.com/gabrielsarcan)**<br><sub>202045769</sub> | **[João Lucas](https://github.com/ghost)**<br><sub>222025324</sub> | **[João Vitor](https://github.com/Joa0V)**<br><sub>221022014</sub> |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/annacbrandao.png" width="90"> | <img src="https://github.com/Arturdcr.png" width="90"> | <img src="https://github.com/gabrielsarcan.png" width="90"> | <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/Joa0V.png" width="90"> |
+| **[Ana Letícia](https://github.com/ghost)**<br><sub>211031584</sub> | **[Anna Clara](https://github.com/annacbrandao)**<br><sub>222006534</sub> | **[Artur Camargos](https://github.com/Arturdcr)**<br><sub>221038785</sub> | **[Gabriel Saraiva](https://github.com/gabrielsarcan)**<br><sub>202045769</sub> | **[Gabryel Sousa](https://github.com/gabryelns)**<br><sub>221022570</sub> | **[João Lucas](https://github.com/ghost)**<br><sub>222025324</sub> | **[João Vitor](https://github.com/Joa0V)**<br><sub>221022014</sub> |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/annacbrandao.png" width="90"> | <img src="https://github.com/Arturdcr.png" width="90"> | <img src="https://github.com/gabrielsarcan.png" width="90"> | <img src="https://github.com/gabryelns.png" width="90"> | <img src="https://github.com/ghost.png" width="90"> | <img src="https://github.com/Joa0V.png" width="90"> |
 
 <br>
 
-| **[Júlia Takaki](https://github.com/juliatakaki)**<br><sub>221029249</sub> | **[Letícia Cássia](https://github.com/HladczukLe)**<br><sub>221039209</sub> | **[Lívia Rodrigues](https://github.com/Liviarodrigues1)**<br><sub>180105051</sub> | **[Lucas Marques](https://github.com/LucasOliveiraDiasMarquesFerreira)**<br><sub>211062787</sub> | **[Lucas Guimarães](https://github.com/Lcsgborges)**<br><sub>222015159</sub> | **[Luísa Ferreira](https://github.com/luisa12ll)**<br><sub>232014807</sub> |
+| **[Júlia Takaki](https://github.com/juliatakaki)**<br><sub>221029249</sub> | **[Letícia Cássia](https://github.com/HladczukLe)**<br><sub>221039209</sub> | **[Lívia Rodrigues](https://github.com/Liviarodrigues1)**<br><sub>180105051</sub> | **[Lucas Marques](https://github.com/LucasOliveiraDiasMarquesFerreira)**<br><sub>211062787</sub> | **[Lucas Guimarães](https://github.com/Lcsgborges)**<br><sub>222015159</sub> | **[Lucas Martins](https://github.com/martinsglucas)**<br><sub>221022088</sub> |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| <img src="https://github.com/juliatakaki.png" width="90"> | <img src="https://github.com/HladczukLe.png" width="90"> | <img src="https://github.com/Liviarodrigues1.png" width="90"> | <img src="https://github.com/LucasOliveiraDiasMarquesFerreira.png" width="90"> | <img src="https://github.com/Lcsgborges.png" width="90"> | <img src="https://github.com/luisa12ll.png" width="90"> |
+| <img src="https://github.com/juliatakaki.png" width="90"> | <img src="https://github.com/HladczukLe.png" width="90"> | <img src="https://github.com/Liviarodrigues1.png" width="90"> | <img src="https://github.com/LucasOliveiraDiasMarquesFerreira.png" width="90"> | <img src="https://github.com/Lcsgborges.png" width="90"> | <img src="https://github.com/martinsglucas.png" width="90"> |
 
 <br>
 
-| **[Maria Clara](https://github.com/alvezclari)**<br><sub>221008329</sub> | **[Maria Eduarda](https://github.com/mariadenis)**<br><sub>232014502</sub> | **[Matheus Brant](https://github.com/MatheussBrant)**<br><sub>222037737</sub> | **[Milena Fernandes](https://github.com/MilenaFRocha)**<br><sub>222022000</sub> | **[Rafael Melo](https://github.com/rmatuda)**<br><sub>222006383</sub> |
-| :---: | :---: | :---: | :---: | :---: |
-| <img src="https://github.com/alvezclari.png" width="90"> | <img src="https://github.com/mariadenis.png" width="90"> | <img src="https://github.com/MatheussBrant.png" width="90"> | <img src="https://github.com/MilenaFRocha.png" width="90"> | <img src="https://github.com/rmatuda.png" width="90"> |
+| **[Luísa Ferreira](https://github.com/luisa12ll)**<br><sub>232014807</sub> | **[Maria Clara](https://github.com/alvezclari)**<br><sub>221008329</sub> | **[Maria Eduarda](https://github.com/mariadenis)**<br><sub>232014502</sub> | **[Matheus Brant](https://github.com/MatheussBrant)**<br><sub>222037737</sub> | **[Milena Fernandes](https://github.com/MilenaFRocha)**<br><sub>222022000</sub> | **[Rafael Melo](https://github.com/rmatuda)**<br><sub>222006383</sub> |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| <img src="https://github.com/luisa12ll.png" width="90"> | <img src="https://github.com/alvezclari.png" width="90"> | <img src="https://github.com/mariadenis.png" width="90"> | <img src="https://github.com/MatheussBrant.png" width="90"> | <img src="https://github.com/MilenaFRocha.png" width="90"> | <img src="https://github.com/rmatuda.png" width="90"> |
+
+<br>
+
+| **[Renann Gomes](https://github.com/renannogomes)**<br><sub>200043030</sub>
+| :---: |
+| <img src="https://github.com/renannogomes.png" width="90"> | 
 
 </div>

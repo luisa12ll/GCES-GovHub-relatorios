@@ -25,7 +25,7 @@ O **Gov Hub BR** é uma plataforma de dados públicos desenvolvida pelo **Lab Li
 Utilize o menu lateral para explorar as seções do nosso trabalho:
 
 * **Sprints:** Relatórios de cada ciclo de desenvolvimento, contendo as entregas coletivas, maiores dificuldades e lições aprendidas pela equipe.
-* **Contribuições Individuais:** Diários de bordo documentando o progresso, os PRs (Pull Requests) e as Issues de cada um dos 17 membros do grupo.
+* **Contribuições Individuais:** Diários de bordo documentando o progresso, os PRs (Pull Requests) e as Issues dos membros do grupo.
 * **Materiais:** Templates padronizados e links de referência utilizados ao longo do semestre.
 
 ---
@@ -59,6 +59,13 @@ Utilize o menu lateral para explorar as seções do nosso trabalho:
     <a href="#/contribuicoes_individuais/gabriel_saraiva/gabriel_saraiva.md" style="text-decoration: none; color: inherit;">
       <img src="https://github.com/gabrielsarcan.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
       <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Gabriel Saraiva<br><span style="font-weight: normal; opacity: 0.7;">202045769</span></p>
+    </a>
+  </div>
+
+  <div style="width: 150px;">
+    <a href="#/contribuicoes_individuais/gabryel_sousa/gabryel_sousa.md" style="text-decoration: none; color: inherit;">
+      <img src="https://github.com/gabryelns.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Gabryel Sousa<br><span style="font-weight: normal; opacity: 0.7;">221022570</span></p>
     </a>
   </div>
 
@@ -112,6 +119,20 @@ Utilize o menu lateral para explorar as seções do nosso trabalho:
   </div>
 
   <div style="width: 150px;">
+    <a href="#/contribuicoes_individuais/lucas_martins/lucas_martins.md" style="text-decoration: none; color: inherit;">
+      <img src="https://github.com/martinsglucas.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Lucas Martins<br><span style="font-weight: normal; opacity: 0.7;">221022088</span></p>
+    </a>
+  </div>
+
+  <div style="width: 150px;">
+    <a href="#/contribuicoes_individuais/luciano_freitas/luciano.md" style="text-decoration: none; color: inherit;">
+      <img src="https://github.com/luciano-freitas-melo.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Luciano Freitas<br><span style="font-weight: normal; opacity: 0.7;">202016847</span></p>
+    </a>
+  </div>
+
+  <div style="width: 150px;">
     <a href="#/contribuicoes_individuais/luisa_ferreira/luisa.md" style="text-decoration: none; color: inherit;">
       <img src="https://github.com/luisa12ll.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
       <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Luísa Ferreira<br><span style="font-weight: normal; opacity: 0.7;">232014807</span></p>
@@ -150,6 +171,13 @@ Utilize o menu lateral para explorar as seções do nosso trabalho:
     <a href="#/contribuicoes_individuais/rafael_melo/rafael_melo.md" style="text-decoration: none; color: inherit;">
       <img src="https://github.com/rmatuda.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
       <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Rafael Melo<br><span style="font-weight: normal; opacity: 0.7;">222006383</span></p>
+    </a>
+  </div>
+
+  <div style="width: 150px;">
+    <a href="#/contribuicoes_individuais/rafael_melo/renann_gomes.md" style="text-decoration: none; color: inherit;">
+      <img src="https://github.com/renannogomes.png" width="120" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="margin-top: 10px; font-weight: bold; font-size: 0.9em;">Renann Gomes<br><span style="font-weight: normal; opacity: 0.7;">200043030</span></p>
     </a>
   </div>
 

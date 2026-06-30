@@ -50,6 +50,8 @@ Essa sprint foi focada na familiarização com o projeto, o aprendizado do fluxo
 * [ ] Contribuir com pelo menos 1 PR.
 * [X] Participar da revisão de código de um colega.
 
+---
+
 ## Sprint 1 – [21/04/2026 – 04/05/2026]
 
 ### Resumo da Sprint
@@ -113,5 +115,151 @@ As principais atividades foram:
 </details>
 
 ### Plano Pessoal para a Próxima Sprint
-- [ ] Ter o PR aprovado
-- [ ] Encontrar novas issues para contribuir
+- [X] Ter o PR aprovado
+- [X] Encontrar novas issues para contribuir
+
+---
+
+## Sprint 2 – [05/05/2026 – 17/05/2026]
+ 
+### Resumo da Sprint
+Nesta sprint, trabalhei em parceria com o [Rafael Matuda](https://github.com/rmatuda) na Issue #276 do GovHub BR. Nosso foco foi estruturar o guia de contribuição (`CONTRIBUTING.md`) e preparar o PR para revisão.
+
+### Atividades Realizadas
+ 
+| Data | Atividade | Tipo | Link/Referência | Status |
+| ---- | --------- | ---- | --------------- | ------ |
+| 05/05 - 12/05 | Busca de novas issues para contribuir | Estudo | [Issues - GovHub](https://github.com/GovHub-br/data-application-gov-hub/issues) | Concluído |
+| 13/05 - 17/05 | Desenvolvimento do `CONTRIBUTING.md` (Issue #276) | Doc | [Issue #276](https://github.com/GovHub-br/data-application-gov-hub/issues/276) | Concluído |
+
+### Maiores Avanços
+* Redação completa do `CONTRIBUTING.md`, suprindo uma lacuna importante de documentação no projeto.
+* Preparação do PR para revisão dos mantenedores.
+
+### Maiores Dificuldades
+* Compreender todas as ferramentas e convenções reais do projeto para não documentar informações desatualizadas.
+* Adequar a documentação à estrutura real do repositório exigiu maior imersão.
+
+### Aprendizados
+* Aprendi a importância de documentação viva e alinhada à realidade do projeto.
+* Experiência prática no ciclo de revisão em projetos open source.
+* Aprofundei a compreensão sobre boas práticas de contribuição colaborativa.
+
+### Plano Pessoal para a Próxima Sprint
+- [X] Abrir o Pull Request e acompanhar a revisão.
+- [X] Buscar novas issues para contribuir.
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">Comprobatórios da Sprint</span></summary>
+<h3>Pull Request #281</h3>
+
+![Pull Request #281](assets/sprint2/pullRequest281.png)
+</details>
+
+---
+
+## Sprint 3 – [18/05/2026 – 01/06/2026]
+
+### Resumo da Sprint
+Nesta sprint, eu e o [Rafael Matuda](https://github.com/rmatuda) finalizamos o PR da documentação de contribuição e acompanhamos sua evolução até o final do período. Enquanto o PR aguardava aprovação, continuei buscando novas issues do GovHub BR para contribuir com o projeto.
+
+Abrimos 2 PRs, o primeiro foi mergeado por engano sem a revisão correta, tivemos que abrir outro para enviar as correções solicitadas. A aprovação e merge do segundo PR ocorreram posteriormente, no dia 27/06.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link/Referência | Status |
+| ---- | --------- | ---- | --------------- | ------ |
+| 18/05 | Finalização do PR do `CONTRIBUTING.md` | Doc | [Link - PR #281](https://github.com/GovHub-br/data-application-gov-hub/pull/281) | Concluído |
+| 19/05 | Acompanhamento do PR e análise de comentários | Doc | [Link - PR #281](https://github.com/GovHub-br/data-application-gov-hub/pull/281) | Concluído |
+| 27/05 | Abertura de novo PR corrigindo as alterações solicitadas | Doc | [Link - PR #330](https://github.com/GovHub-br/data-application-gov-hub/pull/330) | Concluída|
+| 28/05 - 01/06 | Busca de novas issues para contribuir | Estudo | [Issues - GovHub](https://github.com/GovHub-br/data-application-gov-hub/issues) | Concluído |
+
+### Maiores Avanços
+* Enviei o PR de documentação de contribuição do projeto.
+* Mantive o acompanhamento do processo de revisão até o fim da sprint.
+
+### Maiores Dificuldades
+* Achamos que o arquivo `CONTRIBUTING.md` tinha sido mergeado, pois os PRs tinham sido fechados. Isso atrasou um pouco a correção do arquivo.
+
+### Aprendizados
+* Entendi melhor o fluxo de contribuição após a revisão feita.
+
+### Plano Pessoal para a Próxima Sprint
+- [X] Acompanhar o resultado final do PR e validar o merge.
+- [X] Avançar para o trabalho individual da disciplina.
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">Comprobatórios da Sprint</span></summary>
+<h3>Pull Request #330</h3>
+
+![Pull Request #330](assets/sprint3/pullRequest330.png)
+</details>
+---
+
+## Sprint 4 – [02/06/2026 – 15/06/2026]
+
+### Resumo da Sprint
+Nessa sprint, foquei exclusivamente no projeto individual da disciplina.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link/Referência | Status |
+| ---- | --------- | ---- | --------------- | ------ |
+| 02/06 | Estudo sobre os requisitos do trabalho final | Código/Doc/Estudo | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-leticia-rodrigues/) | Concluído |
+| 02/06 - 09/06 | Desenvolvimento das funcionalidades do projeto individual | Código | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-leticia-rodrigues/) | Concluído |
+| 09/06 | Ajustes finais, testes e documentação do trabalho individual | Código/Doc | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-leticia-rodrigues/) | Concluído |
+
+### Maiores Avanços
+* Estruturei o projeto individual com foco nas fases de containerização, CI/CD e qualidade de código.
+* Avancei no desenvolvimento das funcionalidades do projeto e em sua documentação.
+* Mantive registro contínuo das entregas no repositório GitLab enquanto desenvolvia e testava o fluxo de DevOps.
+* Entrega do trabalho individual.
+
+### Maiores Dificuldades
+* Adaptar o projeto para uma arquitetura mais moderna de backend/front-end exigiu ajustes em dependências e configuração.
+* Validar o funcionamento em containers e garantir integração com GitLab CI trouxe desafios de ambiente e teste.
+
+### Aprendizados
+* Entendi melhor como estruturar um pipeline de GitLab CI.
+* Aplicação prática de estruturar um projeto end-to-end por mais que já tivesse um código legado.
+
+### Plano Pessoal para a Próxima Sprint
+- [X] Voltar a contribuir no GovHub
+
+---
+
+## Sprint 5 – [16/06/2026 – 30/06/2026]
+
+### Resumo da Sprint
+Nessa sprint, retomei as contribuições no GovHub BR em parceria com o [Rafael Matuda](https://github.com/rmatuda). Trabalhamos juntos na Issue #289, que envolve a extração de dados do Diário Oficial. O Pull Request ainda não foi aberto pois o site do Diário Oficial ficou fora do ar, impossibilitando os testes da DAG para verificar se os dados estão sendo coletados corretamente.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link/Referência | Status |
+| ---- | --------- | ---- | --------------- | ------ |
+| 16/06 - 30/06 | Desenvolvimento da DAG de extração de dados do Diário Oficial (Issue #289) | Código | [Issue #289](https://github.com/GovHub-br/data-application-gov-hub/issues/289) | Em andamento |
+
+### Maiores Avanços
+* Desenvolvimento da DAG de extração de dados do Diário Oficial junto com o Rafael Matuda.
+
+### Maiores Dificuldades
+* O site do Diário Oficial ficou fora do ar durante o período de testes, impedindo a validação da DAG e a abertura do Pull Request.
+
+### Aprendizados
+* Aprofundei o conhecimento no desenvolvimento de DAGs para extração de dados de fontes governamentais.
+
+### Próximos passos
+- [ ] Testar a DAG assim que o site do Diário Oficial voltar ao ar.
+- [ ] Abrir o Pull Request da Issue #289.
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">Comprobatórios da Sprint</span></summary>
+<h3>Site do Diário Oficial da União fora do ar</h3>
+
+![DOU fora do ar](assets/sprint5/dou_off.png)
+
+<h3>DAG do Diário Oficial da União - seção 1</h3>
+
+![DAG Diário Oficial](assets/sprint5/dag_dou_secao1.png)
+
+</details>
