@@ -249,8 +249,8 @@ Nessa sprint, retomei as contribuições no GovHub BR em parceria com o [Rafael 
 * Aprofundei o conhecimento no desenvolvimento de DAGs para extração de dados de fontes governamentais.
 
 ### Próximos passos
-- [ ] Testar a DAG assim que o site do Diário Oficial voltar ao ar.
-- [ ] Abrir o Pull Request da Issue #289.
+- [ ] Testar a DAG assim que o site do Diário Oficial voltar ao ar
+- [ ] Abrir o Pull Request da Issue #289
 
 <details>
 <summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">Comprobatórios da Sprint</span></summary>
