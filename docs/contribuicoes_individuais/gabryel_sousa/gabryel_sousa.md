@@ -353,3 +353,72 @@ Resposta do endpoint `/api/catalogo`, evidenciando o registro de linhagem comple
 - [ ] Organizar as evidências de execução e a documentação técnica do projeto.
 - [ ] Continuar acompanhando oportunidades de contribuição no Gov Hub BR.
 - [ ] Aprofundar conhecimentos em pipelines de dados e validação automatizada.
+
+## Sprint 4 – [09/06/2026 – 30/06/2026]
+
+### Resumo da Sprint
+
+Sprint dedicada à contribuição com testes unitários no repositório do Gov Hub BR, atendendo à issue #314. Escolhi a issue no dia 25/06 e implementei a suíte de testes para o módulo `airflow_lappis/plugins/cliente_infomoney.py`, responsável pela extração de cotações financeiras via API Alpha Vantage. As chamadas HTTP externas foram mockadas com a biblioteca `respx`, interceptando a camada `httpx.Client.request` herdada de `ClienteBase`, garantindo que nenhuma requisição real fosse feita durante a execução dos testes. Realizei abertura de branch, commit seguindo o padrão Conventional Commits e abertura do PR vinculado à issue.
+
+### Atividades Realizadas
+
+| Data  | Atividade                                                                 | Tipo          | Link/Referência                                                                          | Status    |
+|-------|----------------------------------------------------------------------------|---------------|-------------------------------------------------------------------------------------------|-----------|
+| 25/06 | Escolha e análise da issue #314 e leitura do código de `cliente_infomoney.py` e `cliente_base.py` | Estudo        | [Issue #314](https://github.com/GovHub-br/data-application-gov-hub/issues/314)            | Concluído |
+| 30/06 | Definição da estratégia de mock das chamadas HTTP externas com `respx`     | Arquitetura   | [PR #93](https://github.com/GovHub-br/data-application-cidades/pull/93)                   | Concluído |
+| 30/06 | Implementação dos testes unitários de `get_daily_series`                   | Código        | [PR #93](https://github.com/GovHub-br/data-application-cidades/pull/93)                   | Concluído |
+| 30/06 | Cobertura de cenários de erro: payload vazio, limite de API, símbolo inválido, timeout e retries | Teste         | [PR #93](https://github.com/GovHub-br/data-application-cidades/pull/93)                   | Concluído |
+| 30/06 | Execução local da suíte com pytest, validando os 9 testes                  | Teste         | [PR #93](https://github.com/GovHub-br/data-application-cidades/pull/93)                   | Concluído |
+| 30/06 | Commit seguindo Conventional Commits e abertura do PR vinculado à issue    | Documentação  | [PR #93](https://github.com/GovHub-br/data-application-cidades/pull/93)                   | Concluído |
+| 30/06 | Documentação do diário de bordo                                            | Documentação  | -                                                                                           | Concluído |
+
+### Detalhamento das Atividades Realizadas
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">1. Issue #314 — Testes unitários para cliente_infomoney.py</span></summary>
+
+Issue do tipo Feature, descrevendo a necessidade de testes unitários para validar as rotinas de extração de cotações financeiras mockando as chamadas externas:
+
+![Issue 314](assets/govhub-issue-314.png)
+<p align="center"><i><b>Fonte:</b> Gabryel Sousa</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">2. Código dos testes unitários implementados</span></summary>
+
+Trecho do arquivo `tests/test_plugins/test_cliente_infomoney.py`, com os testes da rotina `get_daily_series`, mockando as chamadas HTTP externas com `respx`:
+
+![Código dos testes](assets/govhub-codigo-testes.png)
+<p align="center"><i><b>Fonte:</b> Gabryel Sousa</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">3. Pull Request #93 — Testes unitários para cliente_infomoney.py</span></summary>
+
+PR aberto com a entrega dos testes unitários, vinculado à issue #314, contendo a descrição da solução e os cenários cobertos:
+
+![PR 93](assets/govhub-pr-93.png)
+<p align="center"><i><b>Fonte:</b> Gabryel Sousa</i></p>
+</details>
+
+---
+
+### Maiores Avanços
+
+- Implementação completa da suíte de testes unitários para `ClienteInfomoney.get_daily_series`, com 9 cenários cobertos.
+- Validação da lógica de retry e tratamento de erro herdada de `ClienteBase`, sem depender de chamadas de rede reais.
+- Aplicação correta de mocks na fronteira HTTP (`httpx`/`respx`), preservando a integração real entre as classes do projeto.
+- Adoção do padrão Conventional Commits na mensagem de commit, vinculando a alteração à issue #314.
+- Abertura do [PR #93](https://github.com/GovHub-br/data-application-cidades/pull/93) com a entrega completa.
+
+### Maiores Dificuldades
+
+- Entender o comportamento exato de `ClienteBase.request` em caso de falha persistente (propagação de exceção em vez de retorno `None`), para garantir que os testes refletissem o comportamento real do código.
+- Ajustar o caminho de import do módulo de teste à estrutura de pastas do projeto (`tests/test_plugins/`).
+
+### Aprendizados
+
+- Uso da biblioteca `respx` para mockar chamadas HTTP feitas via `httpx`, interceptando o tráfego sem alterar o código de produção.
+- Diferença entre mockar no nível do método de negócio e mockar na fronteira real de I/O, e por que a segunda abordagem garante testes mais representativos.
+- Boas práticas de Conventional Commits e como referenciar issues do GitHub em mensagens de commit e descrições de PR.
+- Importância de testar não apenas o caminho feliz, mas também cenários de erro, limite de API e falhas transitórias com retry.
