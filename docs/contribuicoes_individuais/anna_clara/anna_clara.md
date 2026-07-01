@@ -454,9 +454,84 @@ Print do repositório no GitHub com a URL de produção e print da aplicação r
 
 ### Plano Pessoal para a Próxima Sprint
 
-* [ ] Acompanhar o code review do Pull Request ao Gov Hub e implementar eventuais ajustes solicitados pelos mantenedores.
+* [X] Acompanhar o code review do Pull Request ao Gov Hub e implementar eventuais ajustes solicitados pelos mantenedores.
 * [ ] Buscar uma segunda issue para contribuir ao Gov Hub.
-* [ ] Manter o diário de bordo atualizado em paralelo às atividades.
+* [X] Manter o diário de bordo atualizado em paralelo às atividades.
+
+---
+
+## Sprint 4 - [09/06/2026 - 01/07/2026]
+
+### Resumo da Sprint
+
+Nesta sprint, o foco foi acompanhar o code review do Pull Request [#339][link-PR339] aberto ao Gov Hub na sprint anterior, que implementa os testes unitários da issue [#309][link-Issue309]. Apesar do acompanhamento contínuo do status do PR, a revisão não chegou a ser realizada pelos mantenedores: o merge permaneceu bloqueado por exigir ao menos uma aprovação de revisor com permissão de escrita, e nenhuma revisão foi registrada ao longo do período. Em paralelo, identifiquei que um dos checks de CI falhava de forma recorrente por um motivo alheio à minha contribuição — uma automação interna do repositório para atribuição de revisores —, enquanto a análise de qualidade do código (SonarCloud) passou normalmente. Documentei essas ocorrências para registrar que o bloqueio do PR não decorre do código entregue.
+
+### Atividades realizadas
+
+| Data | Atividade | Tipo (Código/Doc/Discussão/Outro) | Link/Referência | Status |
+|------|-----------|-----------------------------------|-----------------|--------|
+| 09/06 | Acompanhamento do status do Pull Request #339 e do andamento da revisão | Discussão | [Pull Request #339][link-PR339] | Concluído |
+| 09/06 | Verificação dos checks de CI do PR e identificação do check que falhava de forma recorrente | Estudo | [Checks do PR][link-PRChecks] | Concluído |
+| 10/06 | Confirmação de que o check em falha (`Request review by domain`) é uma automação do repositório, não relacionada ao código da contribuição | Estudo | [Checks do PR][link-PRChecks] | Concluído |
+| 10/06 | Confirmação de que a análise de qualidade do código passou (SonarCloud — Quality Gate aprovado, 0 issues, 0 security hotspots) | Teste | [Pull Request #339][link-PR339] | Concluído |
+| 16/06 | Reverificação do PR: revisão ainda pendente e check de automação seguindo em falha após novas execuções | Discussão | [Pull Request #339][link-PR339] | Concluído |
+| 30/06 | Registro do estado final do PR ao fim da sprint: revisão não realizada, merge bloqueado por fatores externos à contribuição | Doc | [Pull Request #339][link-PR339] | Concluído |
+
+### Detalhamento das atividades realizadas
+
+#### Acompanhamento do code review — Pull Request #339
+
+Ao longo da sprint, acompanhei o andamento do Pull Request [#339][link-PR339], que adiciona os testes unitários de `cliente_contratos.py`. A revisão, no entanto, **não foi realizada** dentro do período. O PR permaneceu marcado como *Review required*, exigindo pelo menos uma aprovação de um revisor com permissão de escrita, e nenhuma revisão chegou a ser registrada (*No reviews* / *2 pending reviews*). Como consequência, o merge seguiu bloqueado.
+
+Além disso, um dos checks de CI falhava de forma recorrente a cada nova verificação: o `Request team review / Request review by domain (pull_request_target)`, que quebra em poucos segundos. Esse check é uma **automação interna do repositório** para atribuição automática de revisores por domínio — ou seja, não tem relação com o código que entreguei. O fluxo de aprovação de workflows para contribuições externas também ficou pendente de aprovação manual de um mantenedor (*1 workflow awaiting approval*), o que é o comportamento padrão do GitHub para contribuidores que ainda não tiveram um PR mesclado no repositório.
+
+Em contraste, o único check diretamente ligado ao meu código — a análise do **SonarCloud** — passou sem apontamentos: Quality Gate aprovado, 0 novas issues, 0 security hotspots. Isso reforça que o bloqueio do PR decorre de fatores de processo e infraestrutura do repositório, e não da contribuição em si.
+
+Durante o período, um mantenedor também realizou um *force-push* na branch `main` do repositório principal (`roddas force-pushed the main branch from b641952 to ebb9948`). Esse reescrita do histórico do `main` inflou artificialmente a contagem de commits exibida no PR (chegando a 547 commits, em sua maioria não relacionados à minha contribuição) e exigiria uma re-sincronização da branch via rebase com o `upstream`.
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">1. Status do PR — revisão pendente e merge bloqueado</span></summary>
+Print da seção de status do Pull Request #339 mostrando *Review required*, ausência de revisões e o merge bloqueado.
+
+![Status do PR](./assets/sprint4/govhub-prStatusReviewRequired.png)
+<p align="center"><i><b>Fonte:</b> Anna Clara Brandão</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">2. Check de automação em falha (não relacionado ao código)</span></summary>
+Print dos checks do PR mostrando o `Request review by domain (pull_request_target)` em falha e o workflow aguardando aprovação de mantenedor.
+
+![Check em falha](./assets/sprint4/govhub-prCheckFalhando.png)
+<p align="center"><i><b>Fonte:</b> Anna Clara Brandão</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">3. SonarCloud — Quality Gate aprovado</span></summary>
+Print do check do SonarCloud passando, confirmando que a análise de qualidade do código não apresentou apontamentos.
+
+![SonarCloud aprovado](./assets/sprint4/govhub-prSonarCloudPassou.png)
+<p align="center"><i><b>Fonte:</b> Anna Clara Brandão</i></p>
+</details>
+
+### Maiores Avanços
+
+* Confirmação de que a contribuição entregue está tecnicamente correta: o código passou na análise de qualidade do SonarCloud (Quality Gate aprovado, 0 issues, 0 security hotspots), demonstrando que o bloqueio do PR não decorre do trabalho realizado.
+* Capacidade de diagnosticar o motivo real do bloqueio do PR, distinguindo um check de CI ligado ao código de uma automação de processo do repositório.
+* Registro documentado e rastreável do acompanhamento do PR, útil tanto para o diário de bordo quanto para futura comunicação com os mantenedores.
+
+### Maiores Dificuldades
+
+* A revisão do Pull Request não foi realizada dentro da sprint: o merge exige ao menos uma aprovação de revisor com permissão de escrita, e nenhuma revisão foi registrada, deixando a contribuição parada por um fator fora do meu controle.
+* O check `Request review by domain (pull_request_target)` falhava de forma recorrente a cada execução. Por ser uma automação interna do repositório (atribuição de revisores), não havia ação do meu lado capaz de corrigi-lo.
+* O fluxo de workflows para contribuidores externos ficou pendente de aprovação manual de um mantenedor, somando-se aos fatores que mantiveram o PR bloqueado.
+* O *force-push* realizado por um mantenedor na branch `main` reescreveu o histórico do repositório, inflando a contagem de commits do PR e exigindo uma eventual re-sincronização da branch via rebase com o `upstream`.
+
+### Aprendizados
+
+* Como funcionam os workflows do tipo `pull_request_target` no GitHub Actions e por que exigem aprovação manual de um mantenedor quando disparados por contribuidores externos sem PR mesclado anteriormente.
+* A diferença entre um check de CI vinculado ao código (como a análise do SonarCloud) e automações de processo do repositório (como a atribuição automática de revisores) — e por que apenas o primeiro reflete a qualidade da contribuição.
+* O impacto de um *force-push* na branch principal sobre PRs abertos, que pode inflar a contagem de commits exibida e exigir re-sincronização da branch do contribuidor.
+* A importância de documentar o estado de um PR bloqueado por fatores externos, para evidenciar que a entrega está concluída do lado do contribuidor.
 
 [link-Documentação]: https://gov-hub.io/govhub/sobre-projeto/overview/
 [link-Fork]: https://github.com/annacbrandao/gov-hub
@@ -485,3 +560,6 @@ Print do repositório no GitHub com a URL de produção e print da aplicação r
 [link-RepoGCES9]: https://github.com/annacbrandao/gces-projetoindividual/commit/7d83c5f562d6997a274075b993b58234c6d89582
 [link-RepoGCES10]: https://github.com/annacbrandao/gces-projetoindividual/commit/922539dda1461732db6c9846f1741566a8960ed8
 [link-ProducaoGCES]: https://gces-projetoindividual.onrender.com
+[link-Issue309]: https://github.com/GovHub-br/data-application-gov-hub/issues/309
+[link-PR339]: https://github.com/GovHub-br/data-application-gov-hub/pull/339
+[link-PRChecks]: https://github.com/GovHub-br/data-application-gov-hub/pull/339/checks
