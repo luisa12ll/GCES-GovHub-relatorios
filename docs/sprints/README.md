@@ -13,6 +13,8 @@ Acompanhe abaixo o status de cada ciclo de desenvolvimento. Clique no link corre
 | **[Sprint 0](sprint0.md)** | 06/04/2026 – 20/04/2026| Criação do fork, configuração do ambiente e estudo sobre o projeto | ✅ Concluída|
 | **[Sprint 1](sprint1.md)** | 21/04/2026 a 11/05/2026 | Procurar e analisar como são as issues e escolher uma para poder trabalhar e desenvolver | ✅ Concluída |
 | **[Sprint 2](sprint2.md)** | 12/05/2026 a 26/05/2026 | Contribuições ao Gov Hub BR e evolução das entregas individuais | ✅ Concluída |
+| **[Sprint 3](sprint3.md)** | 27/05/2026 a 08/06/2026 | Consolidação de PRs abertos, novos clientes de integração e início dos projetos individuais | ✅ Concluída |
+| **[Sprint 4](sprint4.md)** | 09/06/2026 a 01/07/2026 | Revisão e manutenção de PRs, novas contribuições de testes e entrega dos projetos individuais | ✅ Concluída |
 
 ---
 
