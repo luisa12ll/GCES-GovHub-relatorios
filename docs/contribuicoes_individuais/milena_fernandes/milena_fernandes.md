@@ -253,33 +253,67 @@ O projeto foi implementado e consolidado no [PR #88](https://github.com/GovHub-b
 
 ---
 
-
-## Sprint 4 – [09/06/2026 – 22/06/2026]
+## Sprint 4 – [09/06/2026 – 01/07/2026]
 
 ### Resumo da Sprint
 
 Sprint dedicada à continuidade da contribuição no Gov Hub BR por meio da revisão e manutenção do PR [#321](https://github.com/GovHub-br/data-application-gov-hub/pull/321), referente à feature de alertas de falhas do Airflow via Telegram, desenvolvida em conjunto com o [Lucas Martins](/contribuicoes_individuais/lucas_martins/lucas_martins.md). Durante a sprint, acompanhei os comentários de revisão, corrigi problemas de configuração identificados pelos mantenedores e ajustei a implementação para suportar o envio de notificações para mais de um `chat_id`.
 
+Também atuei na correção do histórico do PR após uma reescrita da branch `main` do repositório oficial, que fez com que o GitHub passasse a exibir centenas de commits indevidos no PR. Para resolver isso, rebaseei a branch da contribuição em cima da `main` atualizada e preservei o conteúdo dos commits por meio de comparação de patches. Nesse processo, o commit `aaf5734` foi apenas a recriação do patch implementado originalmente na sprint 3, não uma nova implementação feita na sprint 4.
 
+Como desdobramento desse problema, também contribuí para a criação do PR [#424](https://github.com/GovHub-br/data-application-gov-hub/pull/424), que adiciona uma GitHub Action de diagnóstico para PRs afetados pela reescrita da `main`. A action analisa PRs abertos, calcula divergência de histórico, classifica casos como `normal`, `linear`, `contaminated` ou `manual`, e publica instruções de correção assistida sem executar código vindo dos PRs. Após o merge do PR #424, a primeira execução em `main` falhou ao tentar publicar comentário via GraphQL. Em seguida, foi aberto o PR [#427](https://github.com/GovHub-br/data-application-gov-hub/pull/427), que corrigiu a publicação de comentários usando a API REST e ajustou as permissões do `GITHUB_TOKEN`; com isso, a execução do workflow passou e publicou o diagnóstico esperado no PR [#345](https://github.com/GovHub-br/data-application-gov-hub/pull/345).
 
 ### Atividades Realizadas
 
 | Data  | Atividade | Tipo (Código/Doc/Discussão/Outro) | Link/Referência | Status |
 |-------|-----------|-----------------------------------|-----------------|--------|
-| 15/06 | Análise dos comentários de revisão do PR #321 | Revisão | [PR #321](https://github.com/GovHub-br/data-application-gov-hub/pull/321#pullrequestreview-4473651469) | Concluído |
-| 15/06 | Correção do import do helper de Telegram conforme o `PYTHONPATH` do projeto | Código | [`contratos_ingest_dag.py`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/airflow_lappis/dags/data_ingest/compras_gov/contratos_ingest_dag.py) | Concluído |
-| 15/06 | Inclusão da dependência `httpx` no `requirements.txt` e ajuste da duplicidade no `pyproject.toml` | Configuração | [`requirements.txt`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/requirements.txt) e [`pyproject.toml`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/pyproject.toml) | Concluído |
-| 15/06 | Ajuste do helper para aceitar um ou múltiplos `chat_id` nas variáveis do Airflow | Código | [`telegram_helpers.py`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/airflow_lappis/helpers/telegram_helpers.py) | Concluído |
+| 15/06 | Análise dos comentários de revisão do PR #321 | Revisão | [review solicitando ajustes](https://github.com/GovHub-br/data-application-gov-hub/pull/321#pullrequestreview-4473651469) | Concluído |
+| 15/06 | Correção do import do helper de Telegram conforme o `PYTHONPATH` do projeto | Código | [`80411b8`](https://github.com/martinsglucas/data-application-gov-hub/commit/80411b8039847dad6c095ac27ba266044616cc82) e [`contratos_ingest_dag.py`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/airflow_lappis/dags/data_ingest/compras_gov/contratos_ingest_dag.py) | Concluído |
+| 15/06 | Inclusão da dependência `httpx` no `requirements.txt` e ajuste da duplicidade no `pyproject.toml` | Configuração | [`80411b8`](https://github.com/martinsglucas/data-application-gov-hub/commit/80411b8039847dad6c095ac27ba266044616cc82), [`requirements.txt`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/requirements.txt) e [`pyproject.toml`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/pyproject.toml) | Concluído |
+| 15/06 | Ajuste do helper para aceitar um ou múltiplos `chat_id` nas variáveis do Airflow | Código | [`80411b8`](https://github.com/martinsglucas/data-application-gov-hub/commit/80411b8039847dad6c095ac27ba266044616cc82) e [`telegram_helpers.py`](https://github.com/martinsglucas/data-application-gov-hub/blob/feat/webhook-alerta-telegram/airflow_lappis/helpers/telegram_helpers.py) | Concluído |
 | 15/06 | Correção da quantidade de commits exibida no PR após reescrita da `main` oficial | Manutenção/Git | [PR #321](https://github.com/GovHub-br/data-application-gov-hub/pull/321) | Concluído |
 | 16/06 | Documentação das correções realizadas na revisão do PR como contribuição da sprint 4 | Documentação | Este diário de bordo | Concluído |
+| 28/06 | Implementação, em coautoria, de action para diagnosticar PRs com histórico divergente após reescrita da `main` | CI/Documentação | [PR #424](https://github.com/GovHub-br/data-application-gov-hub/pull/424), [`7547a07`](https://github.com/martinsglucas/data-application-gov-hub/commit/7547a077b2b2daf3ac0bbd36c1eb8c07e2ad62f3), [`diagnose-rebase-pr.yaml`](https://github.com/martinsglucas/data-application-gov-hub/blob/fix/diagnostico_prs_com_action/.github/workflows/diagnose-rebase-pr.yaml) e [aprovação](https://github.com/GovHub-br/data-application-gov-hub/pull/424#pullrequestreview-4600379210) | Concluído |
+| 30/06 | Correção da action após falha na publicação de comentários e validação com execução bem-sucedida | CI/Debug | [PR #427](https://github.com/GovHub-br/data-application-gov-hub/pull/427), [`6d48b54`](https://github.com/martinsglucas/data-application-gov-hub/commit/6d48b544cdedf6188bb9f72151dbeeef24e8e53f), [`70cee57`](https://github.com/martinsglucas/data-application-gov-hub/commit/70cee57d88405ef8271729f2fdaa9b7833256f19), [run falha](https://github.com/GovHub-br/data-application-gov-hub/actions/runs/28486804992) e [run bem-sucedida](https://github.com/GovHub-br/data-application-gov-hub/actions/runs/28487559264) | Concluído |
 
 ### Detalhamento das Atividades Realizadas
 
-A continuidade da contribuição foi realizada em conjunto com o Lucas Martins. O foco da sprint foi ajustar a implementação já iniciada na sprint 3, validar a configuração esperada pelo projeto e organizar o histórico da branch para facilitar a revisão pelos mantenedores.
+A continuidade da contribuição foi realizada em conjunto com o [Lucas Martins](/contribuicoes_individuais/lucas_martins/lucas_martins.md). O foco da sprint foi ajustar a implementação já iniciada na sprint 3, validar a configuração esperada pelo projeto e organizar o histórico da branch para facilitar a revisão pelos mantenedores. A revisão do PR #321 pediu dois ajustes objetivos: incluir `httpx` também no `requirements.txt` e corrigir o import do helper conforme o `PYTHONPATH` do projeto. Essas mudanças foram concentradas no commit [`80411b8`](https://github.com/martinsglucas/data-application-gov-hub/commit/80411b8039847dad6c095ac27ba266044616cc82), que também evoluiu a configuração para aceitar um ou múltiplos chats de destino.
+
+O problema de histórico causado pela reescrita da `main` motivou duas frentes. Primeiro, a branch do PR #321 foi reorganizada para que o GitHub voltasse a exibir apenas os commits reais da contribuição; por isso o commit [`aaf5734`](https://github.com/martinsglucas/data-application-gov-hub/commit/aaf573416fcc39b7c9e6820d37c7dbe4709a9976) aparece como recriação do patch original. Depois, a experiência foi transformada em uma contribuição de infraestrutura no PR [#424](https://github.com/GovHub-br/data-application-gov-hub/pull/424): o commit [`7547a07`](https://github.com/martinsglucas/data-application-gov-hub/commit/7547a077b2b2daf3ac0bbd36c1eb8c07e2ad62f3) adicionou o workflow [`diagnose-rebase-pr.yaml`](https://github.com/martinsglucas/data-application-gov-hub/blob/fix/diagnostico_prs_com_action/.github/workflows/diagnose-rebase-pr.yaml), que recebeu [aprovação em review](https://github.com/GovHub-br/data-application-gov-hub/pull/424#pullrequestreview-4600379210) e foi mergeado em 30/06/2026.
+
+Depois do merge, a primeira execução manual do workflow em `main`, registrada na run [#28486804992](https://github.com/GovHub-br/data-application-gov-hub/actions/runs/28486804992), quebrou na etapa `Diagnose and comment` com o erro `GraphQL: Resource not accessible by integration (addComment)`. O diagnóstico em si era calculado, mas o comentário no PR não era publicado. Para corrigir isso, o PR [#427](https://github.com/GovHub-br/data-application-gov-hub/pull/427) substituiu `gh pr comment` por chamadas REST de criação/atualização de comentários no commit [`6d48b54`](https://github.com/martinsglucas/data-application-gov-hub/commit/6d48b544cdedf6188bb9f72151dbeeef24e8e53f) e ajustou a permissão `pull-requests` para `write` no commit [`70cee57`](https://github.com/martinsglucas/data-application-gov-hub/commit/70cee57d88405ef8271729f2fdaa9b7833256f19). A validação final foi a run [#28487559264](https://github.com/GovHub-br/data-application-gov-hub/actions/runs/28487559264), concluída com sucesso em 13 segundos, classificando o PR #345 como `linear`, divergência `624 552`, e publicando o comentário com a receita de `git rebase --onto`.
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">1. Execução bem-sucedida do workflow Diagnose PR rebase</span></summary>
+
+Run manual do workflow `diagnose-rebase-pr.yaml` após as correções do PR #427. A execução concluiu com sucesso e registrou no resumo que o PR #345 foi classificado como `linear`, com comentário criado automaticamente.
+
+![Execução bem-sucedida do workflow Diagnose PR rebase](../lucas_martins/assets/sprint-4/workflow.png)
+<p align="center"><i><b>Fonte:</b> Milena Fernandes</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">2. Comentário automático com diagnóstico do PR #345</span></summary>
+
+Comentário publicado pelo `github-actions` no PR #345, contendo autor, origem, merge-base, divergência `origin/main...PR`, base antiga detectada, quantidade de commits reais e classificação `linear`.
+
+![Comentário automático com diagnóstico do PR #345](../lucas_martins/assets/sprint-4/diagnose-1.png)
+<p align="center"><i><b>Fonte:</b> Milena Fernandes</i></p>
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">3. Receita de correção gerada pela action</span></summary>
+
+Continuação do comentário automático, mostrando os commits candidatos, a receita sugerida com `git rebase --onto`, o resultado esperado `0 1` e a orientação de publicar a branch corrigida com `git push --force-with-lease`.
+
+![Receita de correção gerada pela action](../lucas_martins/assets/sprint-4/diagnose-2.png)
+<p align="center"><i><b>Fonte:</b> Milena Fernandes</i></p>
+</details>
 
 #### Arquivos Alterados na Contribuição
 
-Os últimos commits relacionados ao PR alteraram os seguintes arquivos:
+Os commits relacionados às contribuições desta sprint alteraram os seguintes arquivos:
 
 | Arquivo | Descrição da alteração |
 |---------|------------------------|
@@ -287,13 +321,7 @@ Os últimos commits relacionados ao PR alteraram os seguintes arquivos:
 | `airflow_lappis/helpers/telegram_helpers.py` | Evolução do helper para normalizar a configuração de `chat_id`/`chat_ids` e enviar notificações para múltiplos destinos. |
 | `requirements.txt` | Inclusão da dependência `httpx`, necessária para ambientes que instalam dependências por esse arquivo. |
 | `pyproject.toml` | Remoção da duplicidade da dependência `httpx` que havia ficado no arquivo. |
-
-#### Commits Relacionados
-
-| Commit | Descrição |
-|--------|-----------|
-| [`aaf5734`](https://github.com/martinsglucas/data-application-gov-hub/commit/aaf573416fcc39b7c9e6820d37c7dbe4709a9976) | Recriação, após rebase, do patch de implementação inicial das notificações de falhas via Telegram, trabalho já realizado na sprint 3. |
-| [`80411b8`](https://github.com/martinsglucas/data-application-gov-hub/commit/80411b8039847dad6c095ac27ba266044616cc82) | Correções solicitadas na revisão durante a sprint 4: import, dependência, múltiplos chats e organização da configuração. |
+| `.github/workflows/diagnose-rebase-pr.yaml` | Novo workflow de diagnóstico para PRs abertos com histórico divergente após reescrita da `main`, com execução manual ou por comentário autorizado. Depois do merge, o mesmo arquivo foi corrigido para publicar comentários via REST e usar `pull-requests: write`. |
 
 ### Maiores Avanços
 
@@ -301,12 +329,15 @@ Os últimos commits relacionados ao PR alteraram os seguintes arquivos:
 * Ampliação da feature para permitir o envio de alertas para mais de um chat do Telegram.
 * Correção do histórico da branch do PR após reescrita da `main`, reduzindo o PR para apenas os commits reais da contribuição.
 * Validação de que o commit recriado preservou o mesmo patch da implementação original.
+* Criação de uma automação de diagnóstico para apoiar outros PRs afetados pelo mesmo problema de histórico.
+* Correção do workflow após falha real em produção e validação da action publicando diagnóstico automático no PR #345.
 
 ### Maiores Dificuldades
 
 * Entender o impacto da reescrita da `main` oficial nos PRs abertos, que passaram a aparecer com centenas de commits indevidos.
 * Recriar a branch do PR em cima da nova `main` preservando o conteúdo da contribuição original.
 * Ajustar a implementação considerando tanto o ambiente Poetry quanto o uso de `requirements.txt`.
+* Diagnosticar permissões do `GITHUB_TOKEN` em GitHub Actions, especialmente a diferença entre conseguir ler metadados do PR e conseguir publicar comentários em nome da action.
 
 ### Aprendizados
 
@@ -315,6 +346,8 @@ Os últimos commits relacionados ao PR alteraram os seguintes arquivos:
 * Importância de alinhar imports com o `PYTHONPATH` configurado no projeto.
 * Cuidados ao declarar dependências em projetos que mantêm mais de uma fonte de instalação.
 * Como evoluir uma configuração simples (`chat_id`) para suportar múltiplos destinos mantendo compatibilidade com o formato anterior.
+* Como desenhar uma GitHub Action segura para diagnosticar PRs de forks sem executar código não confiável, usando apenas metadados, commits e diffs como dados.
+* Diferença prática entre `gh pr comment`, que usa GraphQL e falhou com `addComment`, e chamadas REST explícitas para criar/atualizar comentários em issues/PRs.
 
 ### Plano Pessoal para a Próxima Sprint
 
