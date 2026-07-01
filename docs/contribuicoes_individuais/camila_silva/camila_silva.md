@@ -393,10 +393,10 @@ Esta sprint foi dedicada à implementação de testes estruturais e de negócio 
 | 13/06 | Mapeamento dos 39 modelos silver e gold e identificação das chaves primárias | Estudo | `data-application-cidades/models/mcid/conjuntura_dbt/` | Concluído |
 | 16/06 | Análise do padrão de testes adotado no projeto (referência: `mir/metadata` e `mcid/empreendimento_far_dbt`) | Estudo | `airflow_lappis/dags/dbt/ipea/macros/tests/` | Concluído |
 | 18/06 | Criação dos 39 modelos `.sql` espelho em `models/mcid/conjuntura_dbt/` | Código | `contratos_dbt/models/mcid/conjuntura_dbt/` | Concluído |
-| 20/06 | Criação da macro `unique_combination_of_columns` para testes de PK composta | Código | `airflow_lappis/dags/dbt/ipea/macros/tests/unique_combination_of_columns.sql` | Concluído |
-| 23/06 | Implementação do `schema.yml` com testes `unique` e `not_null` para todos os modelos | Código | `airflow_lappis/dags/dbt/ipea/models/mcid/conjuntura_dbt/schema.yml` | Concluído |
-| 25/06 | Atualização do `sources.yml` com os blocos `conjuntura_silver` e `conjuntura_gold` | Código | `airflow_lappis/dags/dbt/ipea/models/sources.yml` | Concluído |
-| 26/06 | Atualização do `dbt_project.yml` com a configuração do `mcid/conjuntura_dbt` | Código | `airflow_lappis/dags/dbt/ipea/dbt_project.yml` | Concluído |
+| 23/06 | Criação da macro `unique_combination_of_columns` para testes de PK composta | Código | `airflow_lappis/dags/dbt/ipea/macros/tests/unique_combination_of_columns.sql` | Concluído |
+| 26/06 | Implementação do `schema.yml` com testes `unique` e `not_null` para todos os modelos | Código | `airflow_lappis/dags/dbt/ipea/models/mcid/conjuntura_dbt/schema.yml` | Concluído |
+| 29/06 | Atualização do `sources.yml` com os blocos `conjuntura_silver` e `conjuntura_gold` | Código | `airflow_lappis/dags/dbt/ipea/models/sources.yml` | Concluído |
+| 30/06 | Atualização do `dbt_project.yml` com a configuração do `mcid/conjuntura_dbt` | Código | `airflow_lappis/dags/dbt/ipea/dbt_project.yml` | Concluído |
 | 01/07 | Abertura do Pull Request | Código | [PR #428](https://github.com/GovHub-br/data-application-gov-hub/pull/428) | Aguardando revisão |
 | 01/07 | Atualização do Diário de Bordo | Documentação | - | Concluído |
 
