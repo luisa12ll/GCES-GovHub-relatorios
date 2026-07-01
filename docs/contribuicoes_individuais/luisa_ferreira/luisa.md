@@ -408,6 +408,81 @@ Adicionados testes `unique` + `not_null` nos campos de chave primária e `not_nu
 
 ### Plano Pessoal para a Próxima Sprint
 
-- [ ] Acompanhar a revisão e aprovação do PR de contratos_dbt.
-- [ ] Implementar sugestões de melhoria apontadas na revisão.
-- [ ] Escolher a próxima issue com a Camila.
+- [X] Acompanhar a revisão e aprovação do PR de contratos_dbt.
+- [X] Implementar sugestões de melhoria apontadas na revisão.
+- [X] Escolher a próxima issue com a Camila.
+
+## Sprint 4 – [11/06/2026 – 01/07/2026]
+
+### Resumo da Sprint
+
+Esta sprint foi dedicada à implementação de testes estruturais e de negócio nos schemas dbt do sistema `mcid/conjuntura_dbt`, cobrindo as camadas silver e gold. Em conjunto com a **Camila Silva**, trabalhei no mapeamento das tabelas, identificação das chaves primárias e definição dos testes de unicidade e nulidade. A entrega cobre todos os 39 modelos do sistema conjuntura do MCid, utilizando uma arquitetura de modelos espelho que consome as tabelas já processadas no banco `cidades`.
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link/Referência | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| 11/06 | Estudo e análise da issue #295 | Estudo | [Issue #295](https://github.com/GovHub-br/data-application-gov-hub/issues/295) | Concluído |
+| 12/06 | Investigação dos repositórios `data-application-gov-hub` e `data-application-cidades` | Estudo | `airflow_lappis/dags/dbt/ipea/models/` | Concluído |
+| 13/06 | Mapeamento dos 39 modelos silver e gold e identificação das chaves primárias | Estudo | `data-application-cidades/models/mcid/conjuntura_dbt/` | Concluído |
+| 16/06 | Análise do padrão de testes adotado no projeto (referência: `mir/metadata` e `mcid/empreendimento_far_dbt`) | Estudo | `airflow_lappis/dags/dbt/ipea/macros/tests/` | Concluído |
+| 18/06 | Criação dos 39 modelos `.sql` espelho em `models/mcid/conjuntura_dbt/` | Código | `contratos_dbt/models/mcid/conjuntura_dbt/` | Concluído |
+| 23/06 | Criação da macro `unique_combination_of_columns` para testes de PK composta | Código | `airflow_lappis/dags/dbt/ipea/macros/tests/unique_combination_of_columns.sql` | Concluído |
+| 26/06 | Implementação do `schema.yml` com testes `unique` e `not_null` para todos os modelos | Código | `airflow_lappis/dags/dbt/ipea/models/mcid/conjuntura_dbt/schema.yml` | Concluído |
+| 29/06 | Atualização do `sources.yml` com os blocos `conjuntura_silver` e `conjuntura_gold` | Código | `airflow_lappis/dags/dbt/ipea/models/sources.yml` | Concluído |
+| 30/06 | Atualização do `dbt_project.yml` com a configuração do `mcid/conjuntura_dbt` | Código | `airflow_lappis/dags/dbt/ipea/dbt_project.yml` | Concluído |
+| 01/07 | Abertura do Pull Request | Código | [PR #428](https://github.com/GovHub-br/data-application-gov-hub/pull/428) | Aguardando revisão |
+| 01/07 | Atualização do Diário de Bordo | Documentação | - | Concluído |
+
+### Detalhamento das Atividades Realizadas
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">1. Análise da Issue e Investigação dos Repositórios</span></summary>
+
+Leitura da [issue #295](https://github.com/GovHub-br/data-application-gov-hub/issues/295) e investigação dos dois repositórios envolvidos: `data-application-gov-hub`, onde os testes seriam implementados, e `data-application-cidades`, onde os modelos `mcid/conjuntura_dbt` já existiam com as transformações silver e gold completas. A investigação revelou que o projeto dbt está localizado em `airflow_lappis/dags/dbt/ipea/` e que o `mcid/conjuntura_dbt` não existia no `gov-hub`, exigindo a criação de modelos espelho.
+
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">2. Mapeamento dos Modelos e Identificação das Chaves Primárias</span></summary>
+
+Leitura completa dos 39 modelos `.sql` do `conjuntura_dbt` no repositório `data-application-cidades`, cobrindo 19 modelos silver e 20 modelos gold. Para cada modelo foi identificada a chave primária — simples ou composta — com base na análise das colunas identificadoras, agrupamentos e estrutura das queries. Duas tabelas gold (`gold_indicadores_financiamento_pf` e `gold_precos_construcao`) foram identificadas como singletons, sem chave primária natural, e tratadas de forma diferenciada.
+
+</details>
+
+<details>
+<summary><span style="font-size: 1.25em; font-weight: bold; cursor: pointer;">3. Implementação dos Modelos e Testes</span></summary>
+
+Criados 39 modelos `.sql` espelho em `airflow_lappis/dags/dbt/ipea/models/mcid/conjuntura_dbt/`, cada um consumindo as tabelas já processadas no banco `cidades` via `{{ source(...) }}`. Implementado o `schema.yml` cobrindo todos os modelos com:
+
+**Silver** (19 modelos):
+- PKs simples: `unique` + `not_null` em colunas como `data_referencia` e `periodo`
+- PKs compostas: macro `unique_combination_of_columns` + `not_null` em combinações como `[ano, mes]`, `[ano, trimestre]`, `[tipo, data_referencia]` e `[nome_empresa, ano_balanco, trimestre_balanco]`
+
+**Gold** (20 modelos):
+- PKs simples: `unique` + `not_null` em colunas como `periodo`, `regiao`, `indicador` e `ordem`
+- PKs compostas: macro `unique_combination_of_columns` + `not_null` em combinações como `[ano, mes, banco]` e `[ano, trimestre]`
+- Singletons: apenas `not_null` nas colunas principais, com descrição explicitando a ausência de chave primária natural
+
+</details>
+
+### Maiores Avanços
+
+- Implementação de testes de chave primária (`unique` + `not_null`) em todos os 39 modelos do sistema `conjuntura_dbt`;
+- Criação de macro `unique_combination_of_columns` para suporte a PKs compostas sem dependência de pacotes externos;
+- Arquitetura de modelos espelho que valida as tabelas do banco `cidades` a partir do `gov-hub`;
+- Trabalho colaborativo com Camila Silva ao longo da sprint.
+
+### Maiores Dificuldades
+
+- Identificar que os modelos `mcid/conjuntura_dbt` não existiam no `gov-hub` e estavam em outro repositório, exigindo investigação prévia antes de qualquer implementação;
+- Definir a estratégia correta para tabelas singleton sem chave primária natural, que não se enquadravam nos padrões de `unique` simples ou composto;
+- Compreender a arquitetura de dois repositórios e como o `gov-hub` deveria consumir os dados já processados no `cidades` sem reprocessar transformações.
+
+### Aprendizados
+
+- Arquitetura de múltiplos repositórios dbt e estratégia de modelos espelho para validação cruzada;
+- Identificação de chaves primárias simples e compostas a partir da análise de modelos SQL reais;
+- Criação de macros customizadas de teste dbt sem dependência de pacotes externos;
+- Diferença entre tabelas com PK natural e tabelas singleton no contexto de testes de qualidade;
+- Fluxo de contribuição em projetos com repositórios interdependentes.
