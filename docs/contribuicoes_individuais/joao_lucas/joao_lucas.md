@@ -129,3 +129,65 @@ Demorei a abrir o Pull Request por conta de outras demandas pessoais mas agora e
 - [ ] Ter o novo PR aprovado por todos os revisores.
 - [ ] Buscar novas issues para contribuir.
 - [ ] Ter o PR anterior revisado.
+
+
+## Sprint 3 – [18/05/2026 – 01/06/2026]
+ 
+### Resumo da Sprint
+Nessa Sprint não tive grandes avanços na contribuição do projeto do GovHub, além de ainda não ter os PRs mandados nas sprints anteriores revisados ou aprovados, logo foquei em começar a estudar o projeto individual.
+### Atividades Realizadas
+ 
+| Data | Atividade | Tipo | Link/Referência | Status |
+| 01/06 | Leitura do enunciado da atividade extra     | Doc    | [Projeto Individual ](https://gitlab.com/unb-esw/gces/gces2026-1/projetoindividual) | Concluído |
+
+
+ 
+### Maiores Avanços
+-
+### Maiores Dificuldades
+* Ficar sem revisão dos PRs
+
+### Aprendizados
+-
+### Plano Pessoal para a Próxima Sprint
+- [ ] Ter os PRs aprovado por todos os revisores.
+
+
+## Sprint 4 – [02/06/2026 – 15/06/2026]
+
+### Resumo da Sprint
+Nessa sprint, foquei totalmente na entrega do projeto individual da disciplina (o jogo mk.js). 
+
+### Atividades Realizadas
+
+| Data | Atividade | Tipo | Link/Referência | Status |
+| ---- | --------- | ---- | --------------- | ------ |
+| 02/06 - 04/06 | Atualização de dependências antigas do Node, criação do Dockerfile de desenvolvimento com hot-reload e persistência com Postgres (Fases 1 e 2) | Código / Docker | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-joao-siqueira) | Concluído |
+| 04/06 - 06/06 | Configuração do ESLint global, criação do pipeline de Build & Lint, testes unitários com Jest no ciclo de falha/correção e testes de Fuzzing (Fases 3, 4 e 5) | Código / CI/CD | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-joao-siqueira) | Concluído |
+| 06/06 - 08/06 | Integração de ferramentas de segurança  e análise de qualidade usando o SonarCloud no GitLab CI (Fases 6 e 7) | CI/CD / Segurança | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-joao-siqueira) | Concluído |
+| 08/06 - 09/06 | Configuração do Docker de produção usando Nginx para servir o frontend e fazer proxy reverso para o Node.js (Fase 8) | Docker | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-joao-siqueira) | Concluído |
+| 09/06 - 10/06 | Criação dos manifestos do Kubernetes, deploy automático e segurança de rede com HTTPS e Ingress (Fases 9 e 10) | Infra / IaC / CD | [Repositório GitLab](https://gitlab.com/unb-esw/gces/gces2026-1/trabalho-final-gces-joao-siqueira) | Concluído |
+
+### Maiores Avanços
+
+* A base do projeto individual foi estabelecida, priorizando a criação de containers, pipelines de integração e entrega contínuas (CI/CD) e a garantia da qualidade do software.
+* Montei um pipeline de CI/CD bem completo no GitLab, rodando desde linter e testes até análises de segurança e envio automático da imagem de produção para o registry.
+* O versionamento e o registro das entregas no repositório do GitLab foram mantidos de forma constante durante a criação e validação da esteira DevOps.
+* Houve progresso significativo na implementação das funcionalidades do sistema e na elaboração da documentação técnica.
+* Corrigi bugs e lints antigos que estavam quebrando o linter do frontend, além de modernizar o acesso à câmera no código do jogo.
+
+### Maiores Dificuldades
+* A migração do projeto para uma arquitetura mais moderna, com a separação entre front-end e back-end, exigiu ajustes estruturais, refatorações nas configurações e adequação das dependências.
+* Foi necessário solucionar incompatibilidades causadas por dependências desatualizadas e corrigir problemas do ESLint que inicialmente não eram evidentes.
+* A implantação da aplicação em containers e sua integração com o GitLab CI apresentaram desafios relacionados à configuração dos ambientes e à execução dos testes automatizados.
+* A configuração do Nginx precisou ser adaptada para suportar conexões WebSocket utilizadas pelo socket.io, garantindo a comunicação adequada da aplicação.
+* A configuração do Ingress no Kubernetes para utilização de HTTPS em ambiente local, com o cert-manager e um certificado autoassinado, exigiu ajustes adicionais para seu correto funcionamento.
+
+
+
+### Aprendizados
+* Aprendi a estruturar um pipeline completo no GitLab CI com gerenciamento de dependências e artefatos de cobertura de código.
+
+### Plano Pessoal para a Próxima Sprint
+- [x] Voltar a contribuir no GovHub
+
