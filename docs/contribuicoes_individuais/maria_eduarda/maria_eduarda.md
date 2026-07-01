@@ -190,4 +190,67 @@ Devido à proximidade da data de entrega do Trabalho Individual da disciplina (1
   - [ ] Executar o fluxo completo de governança (Issue -> Branch -> Pull Request) para a nova contribuição.
 
 ---
+ 
+## Sprint 4
+ 
+### Resumo da Sprint
+Esta sprint representou uma virada estratégica no plano de contribuiçãoda disciplina. Ao longo das sprints anteriores, mapeei sistematicamente o backlog do Gov Hub BR em busca de issues disponíveis para contribuição porém, o volume de issues abertas e sem assignee estava significativamente reduzido neste período, sem novas demandas acessíveis para novos contribuidores. Diante dessa indisponibilidade de issues OSS tomei a decisão de direcionar o esforço desta sprint para a entrega do Projeto individual 4.
+
+**Projeto Individual 4**, oferecido como alternativa formal pela disciplina. Esta escolha não representou um abandono da filosofia OSS, mas sim uma forma de aplicar, de maneira mais imediata e auditável, os princípios de GCES em um projeto de engenharia de dados real: rastreabilidade versionamento semântico, documentação de decisões arquiteturais (ADRs) e integração contínua.
+ 
+### Atividades Realizadas
+ 
+| Data  | Atividade | Tipo | Link/Referência | Status |
+| ----- | --------- | ---- | --------------- | ------ |
+| 24/06 | Definição da arquitetura do pipeline de UDA | Design/ADR | docs/adr/ | Concluído |
+| 24/06 | Implementação do Contrato Semântico em Pydantic | Código | app/models/schema.py | Concluído |
+| 24/06 | Modelagem do Catálogo de Dados e Linhagem | Código | app/models/orm.py | Concluído |
+| 24/06 | Implementação da idempotência via SHA-256 | Código | app/extraction/hasher.py | Concluído |
+| 24/06 | Scraper resiliente e agendador de polling | Código | app/ingestion/ | Concluído |
+| 24/06 | Motor de extração semântica via Claude API | Código | app/extraction/llm_extractor.py | Concluído |
+| 24/06 | Chunking híbrido (full-scan + semântico) | Código | app/extraction/pdf_parser.py | Concluído |
+| 24/06 | Orquestrador do pipeline (idempotência ponta a ponta) | Código | app/pipeline.py | Concluído |
+| 24/06 | API REST com FastAPI | Código | app/api/main.py | Concluído |
+| 24/06 | Suite de testes (30/30 passando, com mocks) | Teste | tests/ | Concluído |
+| 24/06 | CI com lint, testes e verificação de segredos | Automação | .github/workflows/ci.yml | Concluído |
+| 24/06 | 5 ADRs documentando decisões de arquitetura | Documentação | docs/adr/0001–0005 | Concluído |
+| 24/06 | README, CHANGELOG e notas de validação | Documentação | docs/notas-de-validacao.md | Concluído |
+| 24/06 | 23 commits atômicos com Conventional Commits | GCES | Branch dev (fork) | Concluído |
+| 24/06 | Pull Request de entrega no repositório da disciplina | GCES | PR aberto | Concluído |
+ 
+### Justificativa da Decisão
+ 
+A escolha pelo Projeto Extra foi tomada conscientemente pela indisponibilidade de issues abertas e sem assignee no Gov Hub BR neste período. As issues existentes já estavam atribuídas a outros contribuidores, e nenhuma nova demanda acessível havia sido aberta desde o último mapeamento realizado na Sprint 3.
+ 
+O Projeto Individual 4 mostrou-se um veículo legítimo e completo para
+aplicar os pilares da disciplina:
+ 
+- **Rastreabilidade completa:** Cada linha do banco de dados é associada ao PDF de origem, à URL da Central de Resultados e à página exata de onde o dado foi extraído (data lineage).
+- **Versionamento semântico rigoroso:** 23 commits atômicos com Conventional Commits (`feat`, `fix`, `docs`, `test`, `ci`, `style`, `chore`) refletindo a evolução real e progressiva do projeto.
+- **Documentação de decisões arquiteturais (ADRs):** 5 Architecture Decision Records formalizando o "porquê" de cada escolha técnica, não só o "o quê", com alternativas consideradas e critério devalidação para cada decisão.
+- **Integração contínua:** Pipeline de CI com lint (ruff), testes automatizados e verificação de segredos no GitHub Actions.
+- **Gestão de configuração:** Separação clara entre `.env.example` (versionado) e `.env` real (ignorado), variáveis de ambiente documentadas, dependências fixadas no `requirements.txt`.
+
+### Maiores Avanços
+- Entrega de um pipeline de UDA (Unstructured Data Analysis) funcional e testado, com arquitetura resiliente a variações de layout de PDF, sem seletores CSS fixos, sem regex de layout, extração inteiramente semântica via LLM.
+- 30/30 testes passando, incluindo mocks de LLM e scraper para garantir cobertura sem depender de rede ou chave de API real nos testes automatizados.
+- Histórico de commits limpo e progressivo, sem commits "wip" ou acúmulos de última hora, acompanhando a evolução real do projeto.
+- Linhagem de dados auditável: o endpoint `GET /api/documentos/{id}/linhagem` permite rastrear qualquer número do relatório final até o PDF de origem e a página exata.
+
+### Maiores Dificuldades
+- **Ambiente Windows:** Manipulação de arquivos via PowerShell exigiu atenção extra ao encoding (UTF-8 vs CRLF) e aos caminhos relativos durante a criação dos arquivos iniciais, com alguns retrabalhos necessários para corrigir estrutura de pastas.
+- **Prompt engineering do Contrato Semântico:** Garantir que o LLM extraísse valores absolutos (R$ milhões) e não as variações percentuais destacadas pelo marketing de RI das incorporadoras exigiu múltiplas camadas de instrução, descrição do campo Pydantic, validador de range e system prompt, para blindar o banco contra esse tipo de confusão.
+
+### Aprendizados
+- **Data lineage na prática:** Rastrear a origem de cada dado é tão importante quanto extraí-lo corretamente — especialmente em pipelines que alimentam relatórios oficiais de governo.
+- **Idempotência como requisito de engenharia:** Verificar o hash do arquivo antes de chamar o LLM economiza custo e evita duplicatas no catálogo, tornando o pipeline seguro para execução contínua.
+- **ADRs como documentação viva:** Registrar o "porquê" de cada decisão, com as alternativas rejeitadas e o critério de validação, é o que transforma um projeto funcional num projeto auditável, exatamente o espírito de GCES.
+
+### Plano Pessoal para a Próxima Sprint
+- [ ] Validar o pipeline com chave real da Anthropic API e PDFs reais das incorporadoras (bloqueadores documentados em `docs/notas-de-validacao.md`).
+- [ ] Retomar mapeamento de issues no Gov Hub BR, priorizando novas demandas abertas desde o último ciclo de mapeamento.
+- [ ] Executar o fluxo completo de governança (Issue → Branch → Pull Request) para nova contribuição OSS assim que issue disponível for identificada.
+---
+ 
 *Assinatura:* Maria Eduarda Denis Duarte Marques
+ 
