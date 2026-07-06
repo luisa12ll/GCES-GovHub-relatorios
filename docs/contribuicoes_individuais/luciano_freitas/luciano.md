@@ -113,3 +113,78 @@ Durante esta sprint, concluí a etapa de integração ao projeto, que incluiu a 
 
 ---
     
+## Sprint 3 – [25/05/2026 – 08/06/2026]
+
+### Resumo da Sprint
+
+Nesta sprint, iniciei os trabalhos práticos no código do Gov Hub BR assumindo a **Issue #313**, que solicitava a criação de testes unitários para o script `airflow_lappis/plugins/cliente_ibge.py`. Dediquei a maior parte do tempo para entender a arquitetura do arquivo, estruturar os mocks para a API de municípios/malhas do IBGE e preparar o mock do FTP. 
+
+Durante o desenvolvimento e análise dos caminhos de execução para a cobertura de testes, acabei identificando um bug silencioso no método `obter_conteudo_arquivo`, relacionado ao uso do `.decode("latin-1")`.
+
+### Atividades Realizadas
+
+| Data   | Atividade                                            | Tipo (Código/Doc/Discussão/Outro) | Link/Referência         | Status    |
+| ------ | ---------------------------------------------------- | --------------------------------- | ----------------------- | --------- |
+| 27/05  | Estudo da arquitetura do `cliente_ibge.py` e requisitos da Issue #313 | Estudo | [Issue #313](https://github.com/GovHub-br/data-application-gov-hub/issues/313) | Concluído |
+| 30/05  | Criação da estrutura base de testes e mocks (FTP e API do IBGE) | Código | Issue #313 | Concluído |
+| 03/06  | Implementação dos testes de caminhos de execução e tratamento de falhas | Código | Issue #313 | Em Andamento |
+| 05/06  | Investigação e análise do bug no método `obter_conteudo_arquivo` | Código/Discussão | PR #379 | Concluído |
+
+### Maiores Avanços
+
+* Entendimento profundo das chamadas externas (FTP/API) feitas pelo módulo do IBGE.
+* Estruturação inicial dos testes e identificação da causa raiz de um bug de decodificação de arquivos.
+
+### Maiores Dificuldades
+
+* Garantir o tratamento seguro das falhas dos endpoints mockados e lidar com a ausência de exceção `UnicodeDecodeError` no `latin-1` ao tentar processar determinados bytes.
+
+### Aprendizados
+
+* Técnicas de mock de conexões FTP e APIs RESTful em Python.
+* Particularidades da tabela de codificação `latin-1` (que aceita qualquer byte sem gerar erro), o que mascarava falhas de decodificação no projeto.
+
+### Plano Pessoal para a Próxima Sprint
+
+* [ ] Corrigir o bug de decodificação.
+* [ ] Finalizar a cobertura de testes da classe, visando 100%.
+* [ ] Abrir o Pull Request e acompanhar o Code Review.
+
+---
+
+## Sprint 4 – [09/06/2026 – 23/06/2026]
+
+### Resumo da Sprint
+
+Dediquei esta sprint à finalização da **Issue #313**. Primeiro, apliquei a correção para o bug de decodificação no `obter_conteudo_arquivo`, forçando o sistema a tentar decodificar com `utf-8` e `cp1252` antes de fazer o fallback para o `latin-1`. 
+
+Em seguida, finalizei a escrita dos testes, garantindo que todos os caminhos de execução e de exceção estivessem devidamente validados. Após rodar os comandos de validação (`make lint` e `make test`), alcancei a marca de **100% de cobertura de testes** no arquivo. Abri o **PR #379**, que passou pela revisão do colega Davi Aguiar Vieira e foi integrado (*merged*) com sucesso à branch principal.
+
+### Atividades Realizadas
+
+| Data   | Atividade                                            | Tipo (Código/Doc/Discussão/Outro) | Link/Referência         | Status    |
+| ------ | ---------------------------------------------------- | --------------------------------- | ----------------------- | --------- |
+| 10/06  | Implementação da correção do bug de encoding (`utf-8` -> `cp1252` -> `latin-1`) | Código | [PR #379](https://github.com/GovHub-br/data-application-gov-hub/pull/379) | Concluído |
+| 12/06  | Conclusão dos testes de exceção dos métodos da classe | Código | PR #379 | Concluído |
+| 15/06  | Validação local do projeto (`make lint` e `make test`) e ajustes finais | Código | PR #379 | Concluído |
+| 17/06  | Abertura do Pull Request com as evidências de cobertura (100%) | Discussão/Código | [PR #379](https://github.com/GovHub-br/data-application-gov-hub/pull/379) | Concluído |
+
+### Maiores Avanços
+
+* Conclusão da minha primeira grande contribuição técnica (Issue #313 fechada).
+* Cobertura total (100%) alcançada no arquivo `cliente_ibge.py`
+* PR #379 revisado e mergeado na `main`.
+
+### Maiores Dificuldades
+
+* Ao rodar o `make lint` localmente para o projeto todo, acabei encontrando vários erros que apontavam para arquivos que eu não havia editado, o que exigiu atenção para isolar apenas o escopo da minha issue.
+
+### Aprendizados
+
+* Fluxo de CI/CD e revisão de código em PRs reais.
+* Importância de testar as ferramentas de linting no escopo correto para não poluir o commit com formatações de terceiros.
+
+### Plano Pessoal para a Próxima Sprint
+
+* [ ] Assumir uma nova Issue de desenvolvimento de feature ou pipeline.
+* [ ] Auxiliar na revisão de código (Code Review) de pelo menos um colega da equipe.
